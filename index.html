@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Keanggotaan Satpam</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f8;margin:0;padding:0}.wrap{max-width:900px;margin:30px auto;padding:20px}.card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}input,textarea,button{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px}button{background:#0b57d0;color:#fff;border:none;cursor:pointer}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.post{border:1px solid #ddd;padding:12px;border-radius:10px;margin-top:10px}.small{color:#666;font-size:12px}
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='card' id='loginBox'>
+<h2>Login Sistem Satpam</h2>
+<input id='user' placeholder='Username'>
+<input id='pass' type='password' placeholder='Password'>
+<button onclick='login()'>Login</button>
+<p class='small'>Admin default: admin / 12345</p>
+</div>
+<div id='app' style='display:none'>
+<div class='card'>
+<h2 id='welcome'></h2>
+<button onclick='logout()'>Logout</button>
+</div>
+<div class='card' id='adminPanel' style='display:none'>
+<h3>Tambah Akun Anggota</h3>
+<div class='grid'>
+<input id='newUser' placeholder='Username anggota'>
+<input id='newPass' placeholder='Password anggota'>
+</div>
+<button onclick='addUser()'>Simpan Akun</button>
+</div>
+<div class='card'>
+<h3>Post Hasil Kerja</h3>
+<input id='judul' placeholder='Judul laporan'>
+<textarea id='isi' placeholder='Isi pekerjaan / patroli / laporan'></textarea>
+<button onclick='addPost()'>Posting</button>
+</div>
+<div class='card'>
+<h3>Daftar Postingan</h3>
+<div id='posts'></div>
+</div>
+</div>
+</div>
+<script>
+let users=JSON.parse(localStorage.getItem('users')||'[{"username":"admin","password":"12345","role":"admin"}]');
+let posts=JSON.parse(localStorage.getItem('posts')||'[]');
+function save(){localStorage.setItem('users',JSON.stringify(users));localStorage.setItem('posts',JSON.stringify(posts));}
+function login(){const u=user.value,p=pass.value;const found=users.find(x=>x.username===u&&x.password===p);if(!found)return alert('Login gagal');localStorage.setItem('session',JSON.stringify(found));loadApp();}
+function logout(){localStorage.removeItem('session');location.reload();}
+function loadApp(){const s=JSON.parse(localStorage.getItem('session'));if(!s)return;loginBox.style.display='none';app.style.display='block';welcome.innerText='Selamat datang, '+s.username+' ('+s.role+')';if(s.role==='admin')adminPanel.style.display='block';renderPosts();}
+function addUser(){const s=JSON.parse(localStorage.getItem('session'));if(!s||s.role!=='admin')return;users.push({username:newUser.value,password:newPass.value,role:'anggota'});save();alert('Akun ditambahkan');newUser.value='';newPass.value='';}
+function addPost(){const s=JSON.parse(localStorage.getItem('session'));posts.unshift({judul:judul.value,isi:isi.value,user:s.username,waktu:new Date().toLocaleString('id-ID')});save();renderPosts();judul.value='';isi.value='';}
+function renderPosts(){postsBox='';posts.forEach(p=>{postsBox+=`<div class='post'><b>${p.judul}</b><p>${p.isi}</p><div class='small'>Oleh ${p.user} | ${p.waktu}</div></div>`});posts.innerHTML=postsBox;}
+loadApp();
+</script>
+</body>
+</html>
