@@ -1,57 +1,558 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Keanggotaan Satpam</title>
+<title>Manajemen Satpam Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
-body{font-family:Arial,sans-serif;background:#f4f6f8;margin:0;padding:0}.wrap{max-width:900px;margin:30px auto;padding:20px}.card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}input,textarea,button{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px}button{background:#0b57d0;color:#fff;border:none;cursor:pointer}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.post{border:1px solid #ddd;padding:12px;border-radius:10px;margin-top:10px}.small{color:#666;font-size:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a1628;--navy2:#122040;--gold:#c9a84c;--gold2:#e8c97a;--cream:#f5f0e8;
+  --white:#ffffff;--gray:#6b7280;--light:#f8f6f0;--border:#d4c89a;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.logo-circle{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:var(--navy);flex-shrink:0;border:2px solid var(--gold2)}
+.brand-text{line-height:1}
+.brand-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--gold2);letter-spacing:0.5px}
+.brand-sub{font-size:10px;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600;color:#c0c0c0;cursor:pointer;transition:all .2s;border:none;background:none;letter-spacing:0.3px}
+.nav-link:hover,.nav-link.active{background:var(--gold);color:var(--navy)}
+
+/* PAGES */
+.page{display:none;min-height:calc(100vh - 64px)}
+.page.active{display:block}
+
+/* === HALAMAN UTAMA === */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#1a2d4a 100%);padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(201,168,76,.03) 40px,rgba(201,168,76,.03) 80px)}
+.hero-badge{display:inline-block;background:rgba(201,168,76,.15);border:1px solid var(--gold);color:var(--gold2);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:1rem;color:var(--white)}
+.hero h1 span{color:var(--gold2)}
+.hero p{font-size:1rem;color:#a0aab4;max-width:500px;margin:0 auto 2rem;line-height:1.7}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;transition:all .2s}
+.hero-cta:hover{background:var(--gold2);transform:translateY(-2px)}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gold);border-top:2px solid var(--gold)}
+.stat-item{background:var(--navy2);padding:1.25rem;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold2)}
+.stat-label{font-size:12px;color:#8a9ab0;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* VISI MISI */
+.vm-section{padding:3rem 2rem;background:var(--light);color:var(--navy)}
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
+.section-sub{font-size:13px;color:var(--gray);margin-bottom:2rem;letter-spacing:0.5px}
+.gold-line{width:50px;height:3px;background:var(--gold);margin-bottom:1rem;border-radius:2px}
+
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.vm-card{background:var(--white);border-radius:12px;padding:1.75rem;border-top:4px solid var(--gold);box-shadow:0 2px 16px rgba(0,0,0,.08)}
+.vm-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.vm-icon i{font-size:22px;color:var(--navy)}
+.vm-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.vm-card p{font-size:13.5px;color:#4b5563;line-height:1.7}
+.vm-list{list-style:none;padding:0}
+.vm-list li{font-size:13px;color:#4b5563;padding:5px 0;border-bottom:1px solid #f0ebe0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.vm-list li:last-child{border-bottom:none}
+.vm-list li::before{content:'◆';color:var(--gold);font-size:8px;margin-top:5px;flex-shrink:0}
+
+/* NILAI */
+.nilai-section{padding:2.5rem 2rem;background:var(--navy);border-top:1px solid #1e3a5f}
+.nilai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.nilai-card{background:var(--navy2);border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:1.25rem;text-align:center;transition:all .2s}
+.nilai-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.nilai-card i{font-size:28px;color:var(--gold2);margin-bottom:.75rem;display:block}
+.nilai-card h4{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.5px}
+.nilai-card p{font-size:12px;color:#8a9ab0;line-height:1.5}
+
+/* === SOP PAGE === */
+.sop-page{background:var(--light);color:var(--navy);min-height:calc(100vh - 64px)}
+.sop-header{background:var(--navy);padding:2.5rem 2rem;border-bottom:3px solid var(--gold)}
+.sop-header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1.5rem}
+.sop-logo{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--navy);flex-shrink:0}
+.sop-title-block h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold2)}
+.sop-title-block p{font-size:13px;color:#8a9ab0;margin-top:4px}
+.sop-meta{margin-top:6px;display:flex;gap:12px;flex-wrap:wrap}
+.sop-badge{font-size:11px;background:rgba(201,168,76,.2);border:1px solid var(--gold);color:var(--gold2);padding:3px 10px;border-radius:12px}
+
+.sop-body{max-width:900px;margin:0 auto;padding:2rem}
+.sop-pages-grid{display:flex;flex-direction:column;gap:1.5rem}
+.sop-page-card{background:var(--white);border-radius:10px;border:0.5px solid #d4c89a;overflow:hidden}
+.sop-page-header{background:var(--navy);padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.sop-page-header span{font-size:12px;color:var(--gold2);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.sop-page-num{font-family:'Playfair Display',serif;font-size:13px;color:#8a9ab0}
+.sop-page-content{padding:1.25rem}
+.sop-page-content h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:.5rem;font-weight:700}
+.sop-page-content p,.sop-page-content li{font-size:13px;color:#374151;line-height:1.7}
+.sop-page-content ul{padding-left:1rem;margin-top:.5rem}
+.sop-page-content ul li{margin-bottom:3px}
+.sop-page-content .step-grid{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;margin-bottom:6px}
+.step-num{width:24px;height:24px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--navy);flex-shrink:0}
+.sop-divider{height:1px;background:#e5e0d0;margin:.75rem 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.info-box{background:#faf7f0;border-left:3px solid var(--gold);padding:.75rem;border-radius:0 6px 6px 0;font-size:13px;color:#374151}
+.info-box strong{display:block;font-size:12px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.sop-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:.5rem}
+.sop-table th{background:var(--navy);color:var(--gold2);padding:6px 10px;text-align:left;font-weight:600}
+.sop-table td{padding:6px 10px;border-bottom:1px solid #e5e0d0;color:#374151}
+.sop-table tr:last-child td{border-bottom:none}
+.badge-status{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.badge-aktif{background:#d1fae5;color:#065f46}
+.badge-wajib{background:#fef3c7;color:#92400e}
+.badge-rutin{background:#e0e7ff;color:#3730a3}
+.sop-footer{background:var(--navy2);border-top:2px solid var(--gold);padding:1rem 2rem;text-align:center}
+.sop-footer p{font-size:12px;color:#8a9ab0;letter-spacing:.5px}
+.sop-footer span{color:var(--gold2);font-weight:600}
 </style>
 </head>
 <body>
-<div class='wrap'>
-<div class='card' id='loginBox'>
-<h2>Login Sistem Satpam</h2>
-<input id='user' placeholder='Username'>
-<input id='pass' type='password' placeholder='Password'>
-<button onclick='login()'>Login</button>
-<p class='small'>Admin default: admin / 12345</p>
+
+<!-- NAVIGASI -->
+<nav>
+  <div class="nav-brand">
+    <div class="logo-circle">S</div>
+    <div class="brand-text">
+      <div class="brand-name">SATPAM PROFESIONAL</div>
+      <div class="brand-sub">Sistem Manajemen Keamanan</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage('home',this)"><i class="ti ti-home"></i> Beranda</button>
+    <button class="nav-link" onclick="showPage('sop',this)"><i class="ti ti-file-text"></i> SOP Tertulis</button>
+  </div>
+</nav>
+
+<!-- ===================== HALAMAN UTAMA ===================== -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-badge">Sistem Manajemen Satpam</div>
+    <h1>Keamanan <span>Profesional</span><br>Terpercaya & Terstandar</h1>
+    <p>Membangun sistem keamanan yang handal, terstruktur, dan berintegritas tinggi untuk melindungi aset dan personel.</p>
+    <button class="hero-cta" onclick="showPage('sop',document.querySelector('.nav-link:nth-child(2)'))">
+      <i class="ti ti-file-text"></i> Lihat SOP Tertulis
+    </button>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">Halaman SOP</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Jadwal Patroli</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Terstandarisasi</div></div>
+  </div>
+
+  <!-- VISI MISI -->
+  <div class="vm-section">
+    <div class="gold-line"></div>
+    <div class="section-title">Visi & Misi</div>
+    <div class="section-sub">Landasan filosofi dan arah gerak organisasi keamanan kami</div>
+
+    <div class="vm-grid">
+      <div class="vm-card">
+        <div class="vm-icon"><i class="ti ti-eye"></i></div>
+        <h3>Visi</h3>
+        <p>Menjadi unit keamanan yang profesional, disiplin, dan terpercaya dalam menciptakan lingkungan yang aman, tertib, dan kondusif bagi seluruh pemangku kepentingan.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-icon"><i class="ti ti-target"></i></div>
+        <h3>Misi</h3>
+        <ul class="vm-list">
+          <li>Melaksanakan tugas pengamanan secara profesional dan terstandarisasi</li>
+          <li>Meningkatkan kompetensi anggota melalui pelatihan berkala</li>
+          <li>Menerapkan SOP keamanan secara konsisten dan terukur</li>
+          <li>Membangun koordinasi yang baik dengan semua pihak terkait</li>
+          <li>Menjaga integritas dan kedisiplinan dalam setiap tugas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NILAI INTI -->
+  <div class="nilai-section">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div class="gold-line" style="margin:0 auto 1rem"></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold2)">Nilai Inti Organisasi</div>
+    </div>
+    <div class="nilai-grid">
+      <div class="nilai-card">
+        <i class="ti ti-shield-check"></i>
+        <h4>Integritas</h4>
+        <p>Menjunjung tinggi kejujuran dan tanggung jawab dalam setiap tugas pengamanan</p>
+      </div>
+      <div class="nilai-card">
+        <i class="ti ti-award"></i>
+        <h4>Profesional</h4>
+        <p>Menjalankan tugas dengan standar tinggi, terlatih, dan berpengetahuan luas</p>
+      </div>
+      <div class="nilai-card">
+        <i class="ti ti-users"></i>
+        <h4>Solidaritas</h4>
+        <p>Membangun kekompakan tim yang solid dalam menjaga keamanan bersama</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div id='app' style='display:none'>
-<div class='card'>
-<h2 id='welcome'></h2>
-<button onclick='logout()'>Logout</button>
+
+<!-- ===================== HALAMAN SOP ===================== -->
+<div class="page" id="page-sop">
+  <div class="sop-page">
+    <div class="sop-header">
+      <div class="sop-header-inner">
+        <div class="sop-logo">S</div>
+        <div class="sop-title-block">
+          <h2>SOP Manajemen Satpam</h2>
+          <p>Standar Operasional Prosedur — Unit Keamanan Profesional</p>
+          <div class="sop-meta">
+            <span class="sop-badge">Versi 2.0</span>
+            <span class="sop-badge">16 Halaman</span>
+            <span class="sop-badge">2024/2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sop-body">
+      <div class="sop-pages-grid">
+
+        <!-- HALAMAN 1 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 1 — Cover & Pengantar</span>
+            <span class="sop-page-num">1 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Standar Operasional Prosedur Satuan Pengamanan</h4>
+            <div class="two-col" style="margin-top:.75rem">
+              <div class="info-box"><strong>Nomor Dokumen</strong>SOP-SAT/001/2024</div>
+              <div class="info-box"><strong>Status Dokumen</strong>Aktif & Berlaku</div>
+              <div class="info-box"><strong>Tanggal Terbit</strong>1 Januari 2024</div>
+              <div class="info-box"><strong>Revisi Ke</strong>2 (Dua)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HALAMAN 2 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 2 — Tujuan & Ruang Lingkup</span>
+            <span class="sop-page-num">2 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Tujuan</h4>
+            <p>SOP ini bertujuan untuk memberikan panduan baku dalam pelaksanaan tugas pengamanan agar terlaksana secara profesional, terstandar, dan dapat dipertanggungjawabkan.</p>
+            <div class="sop-divider"></div>
+            <h4>Ruang Lingkup</h4>
+            <ul>
+              <li>Seluruh personel satpam aktif</li>
+              <li>Area pengamanan dalam dan luar gedung</li>
+              <li>Seluruh shift kerja (pagi, siang, malam)</li>
+              <li>Kegiatan patroli dan penjagaan pos</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- HALAMAN 3 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 3 — Struktur Organisasi</span>
+            <span class="sop-page-num">3 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Hierarki Komando Satpam</h4>
+            <table class="sop-table">
+              <tr><th>Jabatan</th><th>Kode</th><th>Wewenang</th><th>Status</th></tr>
+              <tr><td>Kepala Satpam</td><td>KS-001</td><td>Komando penuh</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Koordinator Shift</td><td>KS-002</td><td>Pengawas lapangan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Anggota Senior</td><td>AS-001</td><td>Patroli & pengamanan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Anggota Junior</td><td>AJ-001</td><td>Tugas pokok</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 4 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 4 — Prosedur Serah Terima Tugas</span>
+            <span class="sop-page-num">4 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Tata Cara Pergantian Shift</h4>
+            <div class="step-grid"><div class="step-num">1</div><p>Petugas datang 15 menit sebelum jadwal shift dimulai</p></div>
+            <div class="step-grid"><div class="step-num">2</div><p>Laporan kondisi situasi dari petugas shift sebelumnya</p></div>
+            <div class="step-grid"><div class="step-num">3</div><p>Pengecekan perlengkapan dan peralatan tugas</p></div>
+            <div class="step-grid"><div class="step-num">4</div><p>Penandatanganan buku serah terima tugas</p></div>
+            <div class="step-grid"><div class="step-num">5</div><p>Petugas shift lama diperbolehkan meninggalkan pos</p></div>
+          </div>
+        </div>
+
+        <!-- HALAMAN 5 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 5 — SOP Penjagaan Pos</span>
+            <span class="sop-page-num">5 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Standar Penjagaan Pos Utama</h4>
+            <p>Petugas wajib berada di pos selama jam tugas. Berikut ketentuan pokok:</p>
+            <ul style="margin-top:.5rem">
+              <li>Berpakaian seragam lengkap dan rapi</li>
+              <li>Bersikap sopan kepada setiap tamu dan pengunjung</li>
+              <li>Mencatat setiap tamu yang masuk di buku register</li>
+              <li>Meminta identitas tamu sebelum diizinkan masuk</li>
+              <li>Dilarang meninggalkan pos tanpa izin koordinator</li>
+              <li>Menjaga kebersihan dan kerapian area pos</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- HALAMAN 6 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 6 — SOP Patroli Rutin</span>
+            <span class="sop-page-num">6 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Jadwal & Rute Patroli</h4>
+            <table class="sop-table">
+              <tr><th>Waktu</th><th>Rute</th><th>Jenis</th><th>Frekuensi</th></tr>
+              <tr><td>06.00–08.00</td><td>Zona A (Depan)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>10.00–12.00</td><td>Zona B (Dalam)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>14.00–16.00</td><td>Zona C (Belakang)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>21.00–23.00</td><td>Keliling Penuh</td><td><span class="badge-status badge-wajib">Wajib</span></td><td>3x</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 7 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 7 — Prosedur Penanganan Tamu</span>
+            <span class="sop-page-num">7 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Alur Penerimaan Tamu</h4>
+            <div class="step-grid"><div class="step-num">1</div><p>Sapa tamu dengan salam dan sikap ramah</p></div>
+            <div class="step-grid"><div class="step-num">2</div><p>Tanyakan keperluan dan tujuan kunjungan</p></div>
+            <div class="step-grid"><div class="step-num">3</div><p>Periksa identitas diri (KTP/SIM) dan catat di buku tamu</p></div>
+            <div class="step-grid"><div class="step-num">4</div><p>Hubungi pihak yang dituju untuk konfirmasi</p></div>
+            <div class="step-grid"><div class="step-num">5</div><p>Berikan kartu tamu dan arahkan ke tujuan</p></div>
+            <div class="step-grid"><div class="step-num">6</div><p>Pastikan kartu tamu dikembalikan saat keluar</p></div>
+          </div>
+        </div>
+
+        <!-- HALAMAN 8 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 8 — Penanganan Keadaan Darurat</span>
+            <span class="sop-page-num">8 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Prosedur Tanggap Darurat</h4>
+            <div class="two-col">
+              <div class="info-box"><strong>Kebakaran</strong>Aktifkan alarm, evakuasi, hubungi 113 (Damkar)</div>
+              <div class="info-box"><strong>Pencurian</strong>Amankan area, hubungi atasan & polisi 110</div>
+              <div class="info-box"><strong>Kecelakaan</strong>Berikan P3K awal, hubungi ambulans 118</div>
+              <div class="info-box"><strong>Bencana Alam</strong>Evakuasi ke titik kumpul, aktifkan sirine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HALAMAN 9 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 9 — Penggunaan Peralatan</span>
+            <span class="sop-page-num">9 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Inventaris & Penggunaan Perlengkapan Tugas</h4>
+            <table class="sop-table">
+              <tr><th>Peralatan</th><th>Kondisi</th><th>Kewajiban</th></tr>
+              <tr><td>Radio HT</td><td>Selalu aktif</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
+              <tr><td>Senter</td><td>Baterai penuh</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
+              <tr><td>Peluit</td><td>Siap pakai</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
+              <tr><td>Borgol</td><td>Terkunci aman</td><td><span class="badge-status badge-rutin">Kondisional</span></td></tr>
+              <tr><td>CCTV Monitor</td><td>Aktif 24 jam</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 10 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 10 — Pelaporan & Dokumentasi</span>
+            <span class="sop-page-num">10 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Standar Pelaporan Harian</h4>
+            <ul>
+              <li>Laporan harian dibuat setiap akhir shift oleh koordinator</li>
+              <li>Format laporan menggunakan form standar F-SAT-01</li>
+              <li>Laporan diserahkan ke Kepala Satpam maks. 30 menit setelah shift</li>
+              <li>Setiap kejadian penting didokumentasikan dengan foto jika memungkinkan</li>
+              <li>Laporan insiden menggunakan form khusus F-INS-01</li>
+              <li>Semua dokumen disimpan minimal 2 tahun</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- HALAMAN 11 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 11 — Kode Etik & Disiplin</span>
+            <span class="sop-page-num">11 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Kode Etik Satpam</h4>
+            <div class="two-col">
+              <div>
+                <p style="font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Dilarang Keras</p>
+                <ul style="color:#dc2626">
+                  <li>Menerima suap atau gratifikasi</li>
+                  <li>Tidur saat bertugas</li>
+                  <li>Menggunakan HP pribadi berlebihan</li>
+                  <li>Meninggalkan pos tanpa izin</li>
+                </ul>
+              </div>
+              <div>
+                <p style="font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Diwajibkan</p>
+                <ul style="color:#065f46">
+                  <li>Berseragam lengkap dan rapi</li>
+                  <li>Bersikap sopan dan profesional</li>
+                  <li>Melapor setiap kejadian</li>
+                  <li>Patuh pada rantai komando</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HALAMAN 12 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 12 — Pelatihan & Pengembangan</span>
+            <span class="sop-page-num">12 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Program Pelatihan Berkala</h4>
+            <table class="sop-table">
+              <tr><th>Jenis Pelatihan</th><th>Frekuensi</th><th>Peserta</th></tr>
+              <tr><td>Bela Diri Dasar</td><td>Bulanan</td><td>Semua anggota</td></tr>
+              <tr><td>P3K & Evakuasi</td><td>Triwulan</td><td>Semua anggota</td></tr>
+              <tr><td>Penggunaan APAR</td><td>Semesteran</td><td>Semua anggota</td></tr>
+              <tr><td>Kepemimpinan</td><td>Tahunan</td><td>Koordinator</td></tr>
+              <tr><td>Teknologi CCTV</td><td>Semesteran</td><td>Operator</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 13 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 13 — Sistem Sanksi</span>
+            <span class="sop-page-num">13 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Tingkatan Sanksi Pelanggaran</h4>
+            <table class="sop-table">
+              <tr><th>Tingkat</th><th>Jenis Pelanggaran</th><th>Sanksi</th></tr>
+              <tr><td>Ringan</td><td>Terlambat, tidak rapi</td><td>Teguran lisan</td></tr>
+              <tr><td>Sedang</td><td>Absen tanpa izin</td><td>Peringatan tertulis</td></tr>
+              <tr><td>Berat</td><td>Tidur saat jaga</td><td>Skorsing 3 hari</td></tr>
+              <tr><td>Sangat Berat</td><td>Korupsi, pengkhianatan</td><td>PHK + laporan polisi</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 14 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 14 — Koordinasi Eksternal</span>
+            <span class="sop-page-num">14 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Nomor Penting & Koordinasi</h4>
+            <div class="two-col">
+              <div class="info-box"><strong>Polsek Setempat</strong>Hubungi: 021-XXXXXXX / 110</div>
+              <div class="info-box"><strong>Pemadam Kebakaran</strong>Hubungi: 113</div>
+              <div class="info-box"><strong>Ambulans / BPBD</strong>Hubungi: 118 / 119</div>
+              <div class="info-box"><strong>Manajemen Gedung</strong>Hubungi: Ext. 100</div>
+            </div>
+            <div class="sop-divider"></div>
+            <p>Koordinasi rutin dengan polsek dilaksanakan setiap bulan. Laporan situasi keamanan disampaikan ke pihak manajemen setiap minggu.</p>
+          </div>
+        </div>
+
+        <!-- HALAMAN 15 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 15 — Evaluasi & Penilaian Kinerja</span>
+            <span class="sop-page-num">15 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Indikator Kinerja Utama (KPI)</h4>
+            <table class="sop-table">
+              <tr><th>Indikator</th><th>Target</th><th>Frekuensi Ukur</th></tr>
+              <tr><td>Kehadiran tepat waktu</td><td>≥ 95%</td><td>Bulanan</td></tr>
+              <tr><td>Laporan harian lengkap</td><td>100%</td><td>Harian</td></tr>
+              <tr><td>Patroli sesuai jadwal</td><td>≥ 90%</td><td>Mingguan</td></tr>
+              <tr><td>Penanganan insiden</td><td>Respon &lt; 5 menit</td><td>Per kejadian</td></tr>
+              <tr><td>Kepuasan pengguna</td><td>≥ 4.0/5.0</td><td>Triwulan</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HALAMAN 16 -->
+        <div class="sop-page-card">
+          <div class="sop-page-header">
+            <span>Halaman 16 — Penutup & Pengesahan</span>
+            <span class="sop-page-num">16 / 16</span>
+          </div>
+          <div class="sop-page-content">
+            <h4>Lembar Pengesahan</h4>
+            <p style="margin-bottom:1rem">SOP ini ditetapkan dan berlaku sejak tanggal ditandatangani. Setiap perubahan harus melalui persetujuan Kepala Satpam dan diketahui Manajemen.</p>
+            <div class="two-col">
+              <div style="text-align:center;padding:1rem;border:1px dashed #d4c89a;border-radius:8px">
+                <p style="font-size:11px;color:#6b7280;margin-bottom:2rem">Dibuat oleh,</p>
+                <div style="border-top:1px solid #374151;padding-top:8px">
+                  <p style="font-size:12px;font-weight:600;color:#374151">Koordinator Satpam</p>
+                  <p style="font-size:11px;color:#6b7280">NIP: SAT-001</p>
+                </div>
+              </div>
+              <div style="text-align:center;padding:1rem;border:1px dashed #d4c89a;border-radius:8px">
+                <p style="font-size:11px;color:#6b7280;margin-bottom:2rem">Disahkan oleh,</p>
+                <div style="border-top:1px solid #374151;padding-top:8px">
+                  <p style="font-size:12px;font-weight:600;color:#374151">Kepala Satpam</p>
+                  <p style="font-size:11px;color:#6b7280">NIP: KS-001</p>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:1rem;padding:.75rem;background:#faf7f0;border-radius:8px;border:1px solid #d4c89a;text-align:center">
+              <p style="font-size:12px;color:#6b7280">Dokumen ini adalah milik Unit Satpam dan bersifat <strong>RAHASIA INTERNAL</strong> — Dilarang disebarkan tanpa izin</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end sop-pages-grid -->
+    </div><!-- end sop-body -->
+
+    <div class="sop-footer">
+      <p>Dokumen SOP Resmi — <span>Unit Satpam Profesional</span> © 2024 — Total 16 Halaman</p>
+    </div>
+  </div>
 </div>
-<div class='card' id='adminPanel' style='display:none'>
-<h3>Tambah Akun Anggota</h3>
-<div class='grid'>
-<input id='newUser' placeholder='Username anggota'>
-<input id='newPass' placeholder='Password anggota'>
-</div>
-<button onclick='addUser()'>Simpan Akun</button>
-</div>
-<div class='card'>
-<h3>Post Hasil Kerja</h3>
-<input id='judul' placeholder='Judul laporan'>
-<textarea id='isi' placeholder='Isi pekerjaan / patroli / laporan'></textarea>
-<button onclick='addPost()'>Posting</button>
-</div>
-<div class='card'>
-<h3>Daftar Postingan</h3>
-<div id='posts'></div>
-</div>
-</div>
-</div>
+
 <script>
-let users=JSON.parse(localStorage.getItem('users')||'[{"username":"admin","password":"12345","role":"admin"}]');
-let posts=JSON.parse(localStorage.getItem('posts')||'[]');
-function save(){localStorage.setItem('users',JSON.stringify(users));localStorage.setItem('posts',JSON.stringify(posts));}
-function login(){const u=user.value,p=pass.value;const found=users.find(x=>x.username===u&&x.password===p);if(!found)return alert('Login gagal');localStorage.setItem('session',JSON.stringify(found));loadApp();}
-function logout(){localStorage.removeItem('session');location.reload();}
-function loadApp(){const s=JSON.parse(localStorage.getItem('session'));if(!s)return;loginBox.style.display='none';app.style.display='block';welcome.innerText='Selamat datang, '+s.username+' ('+s.role+')';if(s.role==='admin')adminPanel.style.display='block';renderPosts();}
-function addUser(){const s=JSON.parse(localStorage.getItem('session'));if(!s||s.role!=='admin')return;users.push({username:newUser.value,password:newPass.value,role:'anggota'});save();alert('Akun ditambahkan');newUser.value='';newPass.value='';}
-function addPost(){const s=JSON.parse(localStorage.getItem('session'));posts.unshift({judul:judul.value,isi:isi.value,user:s.username,waktu:new Date().toLocaleString('id-ID')});save();renderPosts();judul.value='';isi.value='';}
-function renderPosts(){postsBox='';posts.forEach(p=>{postsBox+=`<div class='post'><b>${p.judul}</b><p>${p.isi}</p><div class='small'>Oleh ${p.user} | ${p.waktu}</div></div>`});posts.innerHTML=postsBox;}
-loadApp();
+function showPage(pageId, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
 </script>
 </body>
 </html>
