@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manajemen Satpam Chandra</title>
+<title>Manajemen Satpam Profesional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
@@ -109,6 +109,78 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
 .sop-footer{background:var(--navy2);border-top:2px solid var(--gold);padding:1rem 2rem;text-align:center}
 .sop-footer p{font-size:12px;color:#8a9ab0;letter-spacing:.5px}
 .sop-footer span{color:var(--gold2);font-weight:600}
+.pos-tab{padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;color:#8a9ab0;cursor:pointer;border:1px solid rgba(201,168,76,.3);background:var(--navy2);transition:all .2s;font-family:'Source Sans 3',sans-serif}
+.pos-tab:hover{border-color:var(--gold);color:var(--gold2)}
+.pos-tab.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+/* SHORTCUT CARDS */
+.shortcut-section{padding:2rem;background:var(--navy2);border-top:1px solid rgba(201,168,76,.2)}
+.shortcut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:900px;margin:0 auto}
+.shortcut-card{background:var(--navy);border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:1.4rem 1.2rem;text-align:center;cursor:pointer;transition:all .25s}
+.shortcut-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.shortcut-card i{font-size:32px;color:var(--gold2);display:block;margin-bottom:.6rem}
+.shortcut-card h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.shortcut-card p{font-size:12px;color:#8a9ab0;line-height:1.5}
+
+/* VIDEO PAGE */
+.video-bg{background:var(--navy);min-height:calc(100vh - 64px);padding:2rem}
+.video-ph{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold2)}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1000px;margin-top:1.5rem}
+.video-card{background:var(--navy2);border:1px solid rgba(201,168,76,.2);border-radius:10px;overflow:hidden;transition:all .2s}
+.video-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.video-thumb{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1e3a5f,#0a1628);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden}
+.video-thumb .play-icon{font-size:44px;color:rgba(201,168,76,.8);transition:all .2s;z-index:1}
+.video-card:hover .play-icon{font-size:52px;color:var(--gold2)}
+.video-thumb .vt-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%)}
+.video-thumb .vt-text{font-size:10px;color:#8a9ab0;margin-top:8px;letter-spacing:.5px;text-transform:uppercase;z-index:1}
+.video-card-info{padding:.85rem 1rem}
+.video-card-info h4{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:3px}
+.video-card-info p{font-size:11px;color:#8a9ab0}
+.upload-zone{width:100%;aspect-ratio:16/9;border:2px dashed rgba(201,168,76,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .2s}
+.upload-zone:hover{border-color:var(--gold);background:rgba(201,168,76,.06)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2}
+.upload-zone i{font-size:32px;color:var(--gold);margin-bottom:8px}
+.upload-zone span{font-size:12px;color:#8a9ab0}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--navy2);border:2px solid var(--gold);border-radius:14px;padding:1.5rem;max-width:760px;width:100%;position:relative}
+.modal-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--gold2);font-size:26px;cursor:pointer;line-height:1}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:1rem}
+.modal-video-wrap iframe,.modal-video-wrap video{width:100%;border-radius:8px;height:400px}
+.url-box{background:var(--navy);border-radius:8px;padding:1.5rem;text-align:center}
+.url-box p{font-size:13px;color:#8a9ab0;margin-bottom:.8rem}
+.url-inp{width:88%;padding:.65rem 1rem;border-radius:6px;border:1px solid var(--border);font-size:13px;font-family:inherit}
+.url-btn{background:var(--gold);color:var(--navy);border:none;padding:.65rem 1.5rem;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px;margin-top:.7rem;display:inline-block}
+.url-btn:hover{background:var(--gold2)}
+
+/* JADWAL */
+.jadwal-bg{background:var(--light);min-height:calc(100vh - 64px)}
+.jadwal-top{background:var(--navy);padding:2rem;border-bottom:3px solid var(--gold)}
+.jadwal-top h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold2);display:flex;align-items:center;gap:10px}
+.jadwal-top p{font-size:13px;color:#8a9ab0;margin-top:5px}
+.jadwal-body{padding:2rem;max-width:900px}
+.shift-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-bottom:1.5rem}
+.shift-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.shift-head{padding:1rem 1.3rem;display:flex;align-items:center;gap:12px}
+.shift-pagi .shift-head{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+.shift-siang .shift-head{background:linear-gradient(135deg,#f97316,#fb923c)}
+.shift-malam .shift-head{background:linear-gradient(135deg,#1e3a8a,#3b82f6)}
+.shift-middel .shift-head{background:linear-gradient(135deg,#6d28d9,#a78bfa)}
+.shift-head i{font-size:26px;color:#fff}
+.shift-head-label h3{font-size:15px;font-weight:700;color:#fff}
+.shift-head-label span{font-size:11px;color:rgba(255,255,255,.8)}
+.shift-body{background:#fff;padding:1.2rem}
+.shift-time-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1rem}
+.time-box{background:var(--navy);color:var(--gold2);font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;padding:.45rem 1rem;border-radius:8px;letter-spacing:2px}
+.time-arrow{font-size:1.3rem;color:var(--gray);font-weight:700}
+.shift-tags{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:.8rem}
+.shift-tag{background:#f0ebe0;color:#374151;font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600}
+.shift-notes{background:#fafaf8;border-radius:8px;padding:.75rem 1rem;font-size:12.5px;color:#374151;line-height:1.8}
+.shift-notes strong{color:var(--navy);display:block;margin-bottom:.2rem}
+.sum-table-head{background:var(--navy);padding:.65rem 1.2rem}
+.sum-table-head span{font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:.8px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -118,13 +190,15 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
   <div class="nav-brand">
     <div class="logo-circle">S</div>
     <div class="brand-text">
-      <div class="brand-name">SATPAM CHANDRA</div>
+      <div class="brand-name">SATPAM PROFESIONAL</div>
       <div class="brand-sub">Sistem Manajemen Keamanan</div>
     </div>
   </div>
   <div class="nav-links">
     <button class="nav-link active" onclick="showPage('home',this)"><i class="ti ti-home"></i> Beranda</button>
     <button class="nav-link" onclick="showPage('sop',this)"><i class="ti ti-file-text"></i> SOP Tertulis</button>
+    <button class="nav-link" onclick="showPage('video',this)"><i class="ti ti-video"></i> Giat Beladiri</button>
+    <button class="nav-link" onclick="showPage('jadwal',this)"><i class="ti ti-clock"></i> Jadwal Shift</button>
   </div>
 </nav>
 
@@ -196,6 +270,31 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
       </div>
     </div>
   </div>
+
+  <!-- SHORTCUT CARDS -->
+  <div class="shortcut-section">
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div class="gold-line" style="margin:0 auto .8rem"></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white)">Menu Utama</div>
+    </div>
+    <div class="shortcut-grid">
+      <div class="shortcut-card" onclick="showPage('sop',document.querySelectorAll('.nav-link')[1])">
+        <i class="ti ti-clipboard-list"></i>
+        <h4>SOP Tertulis</h4>
+        <p>Standar operasional prosedur per pos keamanan</p>
+      </div>
+      <div class="shortcut-card" onclick="showPage('video',document.querySelectorAll('.nav-link')[2])">
+        <i class="ti ti-video"></i>
+        <h4>Giat Beladiri</h4>
+        <p>Tongkat, borgol, karate, 21 &amp; 24 gerakan, Thailand</p>
+      </div>
+      <div class="shortcut-card" onclick="showPage('jadwal',document.querySelectorAll('.nav-link')[3])">
+        <i class="ti ti-clock"></i>
+        <h4>Jadwal Shift</h4>
+        <p>Pagi · Siang · Malam · Middel — jam masuk &amp; pulang</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ===================== HALAMAN SOP ===================== -->
@@ -230,8 +329,8 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
             <div class="two-col" style="margin-top:.75rem">
               <div class="info-box"><strong>Nomor Dokumen</strong>SOP-SAT/001/2024</div>
               <div class="info-box"><strong>Status Dokumen</strong>Aktif & Berlaku</div>
-              <div class="info-box"><strong>Tanggal Terbit</strong>7 Mei 2025</div>
-              <div class="info-box"><strong>Revisi Ke</strong>1 (Satu)</div>
+              <div class="info-box"><strong>Tanggal Terbit</strong>1 Januari 2024</div>
+              <div class="info-box"><strong>Revisi Ke</strong>2 (Dua)</div>
             </div>
           </div>
         </div>
@@ -266,10 +365,10 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
             <h4>Hierarki Komando Satpam</h4>
             <table class="sop-table">
               <tr><th>Jabatan</th><th>Kode</th><th>Wewenang</th><th>Status</th></tr>
-              <tr><td>Kepala Satpam</td><td>POSKO</td><td>Komando penuh</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Koordinator Shift</td><td>POSKO-1 & POSKO-2</td><td>Pengawas lapangan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Dandru</td><td>Dankas & Dandam</td><td>Patroli & pengamanan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Anggota</td><td>AJ-001</td><td>Tugas pokok</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Kepala Satpam</td><td>KS-001</td><td>Komando penuh</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Koordinator Shift</td><td>KS-002</td><td>Pengawas lapangan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Anggota Senior</td><td>AS-001</td><td>Patroli & pengamanan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
+              <tr><td>Anggota Junior</td><td>AJ-001</td><td>Tugas pokok</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
             </table>
           </div>
         </div>
@@ -320,10 +419,10 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
             <h4>Jadwal & Rute Patroli</h4>
             <table class="sop-table">
               <tr><th>Waktu</th><th>Rute</th><th>Jenis</th><th>Frekuensi</th></tr>
-              <tr><td>07.00–15.30</td><td>Shift (Pagi)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>14.00–22.30</td><td>Shift (Siang)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>00.00–00.00</td><td>Shift (Midle 32 & 33)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>21.00–23.00</td><td>Shift (Midle 42 & ss)</td><td><span class="badge-status badge-wajib">Wajib</span></td><td>3x</td></tr>
+              <tr><td>06.00–08.00</td><td>Zona A (Depan)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>10.00–12.00</td><td>Zona B (Dalam)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>14.00–16.00</td><td>Zona C (Belakang)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
+              <tr><td>21.00–23.00</td><td>Keliling Penuh</td><td><span class="badge-status badge-wajib">Wajib</span></td><td>3x</td></tr>
             </table>
           </div>
         </div>
@@ -546,6 +645,261 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
   </div>
 </div>
 
+
+<!-- ===================== HALAMAN VIDEO BELADIRI ===================== -->
+<div class="page" id="page-video">
+  <div class="video-bg">
+    <div style="border-bottom:2px solid rgba(201,168,76,.25);padding-bottom:1.5rem;margin-bottom:2rem">
+      <div class="video-ph"><i class="ti ti-shield-bolt" style="color:var(--gold);margin-right:8px"></i>Giat Beladiri &amp; Pelatihan</div>
+      <p style="font-size:13px;color:#8a9ab0;margin-top:5px">Klik pada kartu video untuk memutar — isi URL YouTube atau upload video sendiri</p>
+    </div>
+
+    <div class="video-grid">
+
+      <!-- TONGKAT DASAR -->
+      <div class="video-card" onclick="openVideoModal('Tongkat Dasar','tongkat')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-tool play-icon"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-tool" style="color:var(--gold)"></i> Tongkat Dasar</h4>
+          <p>Teknik dasar penggunaan tongkat keamanan satpam</p>
+        </div>
+      </div>
+
+      <!-- BORGOL -->
+      <div class="video-card" onclick="openVideoModal('Borgol','borgol')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-lock play-icon"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-lock" style="color:var(--gold)"></i> Borgol</h4>
+          <p>Teknik penggunaan borgol yang benar dan aman</p>
+        </div>
+      </div>
+
+      <!-- KARATE -->
+      <div class="video-card" onclick="openVideoModal('Karate','karate')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-run play-icon"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-run" style="color:var(--gold)"></i> Karate</h4>
+          <p>Gerakan karate dasar untuk pertahanan diri</p>
+        </div>
+      </div>
+
+      <!-- 21 GERAKAN -->
+      <div class="video-card" onclick="openVideoModal('21 Gerakan','ger21')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-list-numbers play-icon"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-list-numbers" style="color:var(--gold)"></i> 21 Gerakan</h4>
+          <p>Rangkaian 21 gerakan beladiri standar satpam</p>
+        </div>
+      </div>
+
+      <!-- 24 GERAKAN -->
+      <div class="video-card" onclick="openVideoModal('24 Gerakan','ger24')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-list-numbers play-icon" style="color:rgba(232,201,122,.7)"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-list-numbers" style="color:var(--gold)"></i> 24 Gerakan</h4>
+          <p>Rangkaian 24 gerakan beladiri lanjutan satpam</p>
+        </div>
+      </div>
+
+      <!-- THAILAND -->
+      <div class="video-card" onclick="openVideoModal('Thailand (Muay Thai)','thailand')">
+        <div class="video-thumb">
+          <div class="vt-bg"></div>
+          <i class="ti ti-flame play-icon"></i>
+          <div class="vt-text">Klik untuk putar</div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-flame" style="color:var(--gold)"></i> Thailand</h4>
+          <p>Teknik Muay Thai untuk pertahanan diri satpam</p>
+        </div>
+      </div>
+
+      <!-- UPLOAD SENDIRI -->
+      <div class="video-card">
+        <div id="uploadZoneWrap">
+          <div class="upload-zone" onclick="document.getElementById('customVid').click()">
+            <input type="file" id="customVid" accept="video/*" style="display:none" onchange="loadCustomVideo(this)">
+            <i class="ti ti-cloud-upload"></i>
+            <span>Upload Video Anda</span>
+            <span style="font-size:10px;margin-top:3px;color:#6b7280">MP4 · MOV · AVI</span>
+          </div>
+        </div>
+        <div class="video-card-info">
+          <h4><i class="ti ti-upload" style="color:var(--gold)"></i> Video Custom</h4>
+          <p>Upload video pelatihan Anda sendiri di sini</p>
+        </div>
+      </div>
+
+    </div><!-- end video-grid -->
+  </div>
+</div>
+
+<!-- ===================== HALAMAN JADWAL SHIFT ===================== -->
+<div class="page" id="page-jadwal">
+  <div class="jadwal-bg">
+    <div class="jadwal-top">
+      <h2><i class="ti ti-clock" style="color:var(--gold2)"></i> Jadwal Jam Masuk &amp; Pulang</h2>
+      <p>Empat shift operasional satpam — hadir 15 menit sebelum jam masuk</p>
+    </div>
+    <div class="jadwal-body">
+
+      <div class="shift-grid">
+
+        <!-- PAGI -->
+        <div class="shift-card shift-pagi">
+          <div class="shift-head">
+            <i class="ti ti-sun"></i>
+            <div class="shift-head-label"><h3>Shift Pagi</h3><span>Morning Shift</span></div>
+          </div>
+          <div class="shift-body">
+            <div class="shift-time-row">
+              <div class="time-box">07:00</div>
+              <div class="time-arrow">→</div>
+              <div class="time-box">15:30</div>
+            </div>
+            <div class="shift-tags">
+              <span class="shift-tag">⏱ 8,5 Jam</span>
+              <span class="shift-tag">🕐 Masuk 06:45</span>
+              <span class="shift-tag">☀️ Pagi</span>
+            </div>
+            <div class="shift-notes">
+              <strong>Ketentuan:</strong>
+              • Apel pagi pukul 07.00 sebelum bertugas<br>
+              • Serah terima dengan shift malam pukul 07.00<br>
+              • Patroli perdana pukul 07.30<br>
+              • Laporan harian diserahkan pukul 15.00
+            </div>
+          </div>
+        </div>
+
+        <!-- SIANG -->
+        <div class="shift-card shift-siang">
+          <div class="shift-head">
+            <i class="ti ti-sun-high"></i>
+            <div class="shift-head-label"><h3>Shift Siang</h3><span>Afternoon Shift</span></div>
+          </div>
+          <div class="shift-body">
+            <div class="shift-time-row">
+              <div class="time-box">14:00</div>
+              <div class="time-arrow">→</div>
+              <div class="time-box">22:30</div>
+            </div>
+            <div class="shift-tags">
+              <span class="shift-tag">⏱ 8,5 Jam</span>
+              <span class="shift-tag">🕑 Masuk 13:45</span>
+              <span class="shift-tag">🌤 Siang</span>
+            </div>
+            <div class="shift-notes">
+              <strong>Ketentuan:</strong>
+              • Serah terima dengan shift pagi pukul 14.00<br>
+              • Periksa kondisi pos dan kelengkapan peralatan<br>
+              • Koordinasi dengan shift malam sebelum pulang<br>
+              • Laporan ke koordinator pukul 22.00
+            </div>
+          </div>
+        </div>
+
+        <!-- MALAM -->
+        <div class="shift-card shift-malam">
+          <div class="shift-head">
+            <i class="ti ti-moon"></i>
+            <div class="shift-head-label"><h3>Shift Malam</h3><span>Night Shift</span></div>
+          </div>
+          <div class="shift-body">
+            <div class="shift-time-row">
+              <div class="time-box">21:30</div>
+              <div class="time-arrow">→</div>
+              <div class="time-box">07:00</div>
+            </div>
+            <div class="shift-tags">
+              <span class="shift-tag">⏱ 9,5 Jam</span>
+              <span class="shift-tag">🕙 Masuk 21:15</span>
+              <span class="shift-tag">🌙 Malam</span>
+            </div>
+            <div class="shift-notes">
+              <strong>Ketentuan:</strong>
+              • Serah terima dengan shift siang pukul 21.30<br>
+              • Patroli wajib tiap 1 jam sekali<br>
+              • Dilarang tidur pukul 22.00–04.00 (jam rawan)<br>
+              • Koordinasi via HT tiap 2 jam semua pos
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDDEL -->
+        <div class="shift-card shift-middel">
+          <div class="shift-head">
+            <i class="ti ti-sun-wind"></i>
+            <div class="shift-head-label"><h3>Shift Middel</h3><span>Middle Shift</span></div>
+          </div>
+          <div class="shift-body">
+            <div class="shift-time-row">
+              <div class="time-box">12:00</div>
+              <div class="time-arrow">→</div>
+              <div class="time-box">20:00</div>
+            </div>
+            <div class="shift-tags">
+              <span class="shift-tag">⏱ 8 Jam</span>
+              <span class="shift-tag">🕛 Masuk 11:45</span>
+              <span class="shift-tag">🌅 Middel</span>
+            </div>
+            <div class="shift-notes">
+              <strong>Ketentuan:</strong>
+              • Mengisi kebutuhan personel jam sibuk siang<br>
+              • Koordinasi dengan shift pagi dan siang<br>
+              • Backup patroli area padat pengunjung<br>
+              • Laporan diserahkan pukul 19.30
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end shift-grid -->
+
+      <!-- Tabel Ringkasan -->
+      <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07)">
+        <div class="sum-table-head"><span>📋 Ringkasan Jadwal Semua Shift</span></div>
+        <table class="sop-table">
+          <tr><th>Shift</th><th>Jam Masuk</th><th>Jam Pulang</th><th>Durasi</th><th>Wajib Hadir</th></tr>
+          <tr><td><b>Pagi</b></td><td>07:00</td><td>15:30</td><td>8,5 Jam</td><td>06:45</td></tr>
+          <tr><td><b>Siang</b></td><td>14:00</td><td>22:30</td><td>8,5 Jam</td><td>13:45</td></tr>
+          <tr><td><b>Malam</b></td><td>21:30</td><td>07:00</td><td>9,5 Jam</td><td>21:15</td></tr>
+          <tr><td><b>Middel</b></td><td>12:00</td><td>20:00</td><td>8 Jam</td><td>11:45</td></tr>
+        </table>
+      </div>
+
+    </div><!-- end jadwal-body -->
+  </div>
+</div>
+
+<!-- MODAL VIDEO -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeVideoModal()">×</button>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-video-wrap" id="modalVideoWrap"></div>
+  </div>
+</div>
+
 <script>
 function showPage(pageId, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -553,6 +907,56 @@ function showPage(pageId, btn) {
   document.getElementById('page-' + pageId).classList.add('active');
   if (btn) btn.classList.add('active');
 }
+
+// ── VIDEO MODAL ──
+var videoUrls = {};
+
+function openVideoModal(title, key){
+  document.getElementById('modalTitle').textContent = '▶  ' + title;
+  var wrap = document.getElementById('modalVideoWrap');
+  var saved = videoUrls[key] || '';
+  if(saved){
+    wrap.innerHTML = '<iframe src="'+saved+'" frameborder="0" allowfullscreen style="width:100%;height:400px;border-radius:8px"></iframe>';
+  } else {
+    wrap.innerHTML = '<div class="url-box"><p>Masukkan URL YouTube untuk <b style=\"color:var(--gold2)\">'+title+'</b> :</p><input id="urlInp_'+key+'" class="url-inp" type="text" placeholder="https://www.youtube.com/watch?v=..."><br><button class="url-btn" onclick="loadUrl(\''+key+'\',\''+title+'\')">▶ Putar Video</button></div>';
+  }
+  document.getElementById('videoModal').classList.add('open');
+}
+
+function loadUrl(key, title){
+  var raw = document.getElementById('urlInp_'+key).value.trim();
+  // convert to embed
+  var url = raw;
+  if(url.includes('watch?v=')){
+    url = url.replace('watch?v=','embed/');
+    var amp = url.indexOf('&');
+    if(amp > -1) url = url.substring(0, amp);
+  } else if(url.includes('youtu.be/')){
+    url = url.replace('youtu.be/','www.youtube.com/embed/');
+  }
+  if(!url.startsWith('http')){ alert('URL tidak valid'); return; }
+  videoUrls[key] = url;
+  var wrap = document.getElementById('modalVideoWrap');
+  wrap.innerHTML = '<iframe src="'+url+'" frameborder="0" allowfullscreen style="width:100%;height:400px;border-radius:8px"></iframe>';
+}
+
+function closeVideoModal(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.getElementById('modalVideoWrap').innerHTML = '';
+}
+
+function loadCustomVideo(input){
+  if(!input.files[0]) return;
+  var url = URL.createObjectURL(input.files[0]);
+  var wrap = document.getElementById('uploadZoneWrap');
+  wrap.innerHTML = '<video src="'+url+'" controls style="width:100%;border-radius:6px;max-height:175px"></video>';
+}
+
+// Close modal on overlay click
+document.getElementById('videoModal').addEventListener('click', function(e){
+  if(e.target === this) closeVideoModal();
+});
+
 </script>
 </body>
 </html>
