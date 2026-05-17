@@ -40,10 +40,14 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
 .hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;transition:all .2s}
 .hero-cta:hover{background:var(--gold2);transform:translateY(-2px)}
 
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gold);border-top:2px solid var(--gold)}
-.stat-item{background:var(--navy2);padding:1.25rem;text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold2)}
-.stat-label{font-size:12px;color:#8a9ab0;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:transparent;border-top:none;margin-top:0}
+.stat-item{background:var(--navy2);padding:1.3rem .8rem 1.1rem;text-align:center;position:relative;border-right:1px solid rgba(201,168,76,.18);border-top:3px solid transparent;transition:border-top-color .25s}
+.stat-item:last-child{border-right:none}
+.stat-item:hover{border-top-color:var(--gold);background:#0e1c35}
+.stat-icon{font-size:22px;color:rgba(201,168,76,.55);margin-bottom:.35rem;line-height:1}
+.stat-icon i{font-size:22px}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--gold2);line-height:1.1}
+.stat-label{font-size:10.5px;color:#7a8a9e;text-transform:uppercase;letter-spacing:.9px;margin-top:.3rem}
 
 /* VISI MISI */
 .vm-section{padding:3rem 2rem;background:var(--light);color:var(--navy)}
@@ -181,6 +185,388 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
 .shift-notes strong{color:var(--navy);display:block;margin-bottom:.2rem}
 .sum-table-head{background:var(--navy);padding:.65rem 1.2rem}
 .sum-table-head span{font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:.8px;text-transform:uppercase}
+
+/* ══ SOP POS ══ */
+.soppos-wrap{background:var(--light);color:var(--navy);min-height:calc(100vh - 64px)}
+.soppos-header{background:var(--navy);padding:1.5rem 2rem;border-bottom:3px solid var(--gold);display:flex;align-items:center;gap:1.2rem}
+.soppos-logo{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:var(--navy);flex-shrink:0}
+.soppos-title h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--gold2)}
+.soppos-title p{font-size:12px;color:#8a9ab0;margin-top:3px}
+.soppos-meta{margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
+.sp-badge{font-size:10px;background:rgba(201,168,76,.18);border:1px solid var(--gold);color:var(--gold2);padding:2px 9px;border-radius:10px}
+
+/* Scrollable tab bar */
+.pos-tabs-bar{background:var(--navy2);padding:.7rem 1rem;border-bottom:1px solid rgba(201,168,76,.2);display:flex;gap:5px;flex-wrap:wrap;overflow-x:auto}
+.pos-tab-btn{padding:5px 11px;border-radius:6px;font-size:11px;font-weight:700;color:#8a9ab0;cursor:pointer;border:1px solid rgba(201,168,76,.22);background:transparent;transition:all .18s;white-space:nowrap;font-family:'Source Sans 3',sans-serif}
+.pos-tab-btn:hover{border-color:var(--gold);color:var(--gold2)}
+.pos-tab-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+/* Panel */
+.pos-panels{padding:1.5rem 2rem;max-width:960px}
+.pos-panel{display:none}
+.pos-panel.active{display:block}
+.panel-top{background:var(--navy);border-radius:10px;padding:1rem 1.3rem;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between}
+.panel-top-info h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold2)}
+.panel-top-info p{font-size:12px;color:#8a9ab0;margin-top:2px}
+.panel-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:rgba(201,168,76,.25)}
+
+/* Photo grid */
+.photo-sec-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:.7rem;display:flex;align-items:center;gap:5px}
+.photo-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-bottom:1.2rem}
+.ph-slot{background:var(--white);border:1.5px dashed #c9a84c;border-radius:8px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:all .18s}
+.ph-slot:hover{background:#faf7f0;border-color:var(--gold)}
+.ph-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2}
+.ph-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.ph-slot .ph-ico{font-size:20px;color:#c9a84c;margin-bottom:3px}
+.ph-slot .ph-txt{font-size:9px;color:var(--gray);text-align:center;padding:0 4px}
+.ph-slot .ph-n{position:absolute;bottom:3px;left:5px;font-size:9px;background:rgba(0,0,0,.5);color:#fff;padding:1px 5px;border-radius:6px;z-index:3}
+.ph-del{position:absolute;top:3px;right:3px;background:rgba(220,38,38,.8);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;line-height:1}
+.ph-slot:hover .ph-del{display:flex}
+
+/* SOP text blocks */
+.sop-block{background:var(--white);border-radius:10px;border:.5px solid #d4c89a;overflow:hidden;margin-bottom:1rem}
+.sop-block-head{background:var(--navy);padding:.6rem 1.1rem;display:flex;align-items:center;justify-content:space-between}
+.sop-block-head span{font-size:11px;color:var(--gold2);font-weight:700;letter-spacing:.7px;text-transform:uppercase}
+.sop-block-head small{font-size:11px;color:#8a9ab0}
+.sop-block-body{padding:1rem 1.1rem}
+.sop-block-body h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--navy);margin-bottom:.5rem;font-weight:700}
+.sop-ta{width:100%;border:1px solid #e5e0d0;border-radius:6px;padding:.65rem .9rem;font-size:13px;color:#374151;font-family:'Source Sans 3',sans-serif;line-height:1.7;resize:vertical;min-height:110px;background:#fafaf8;transition:border .2s}
+.sop-ta:focus{outline:none;border-color:var(--gold);background:#fff}
+.sop-ta::placeholder{color:#bbb}
+.sop-save-row{display:flex;align-items:center;gap:.6rem;margin-top:.5rem}
+.sop-save-btn{background:var(--gold);color:var(--navy);border:none;padding:5px 14px;border-radius:5px;font-size:12px;font-weight:700;cursor:pointer;transition:all .18s}
+.sop-save-btn:hover{background:var(--gold2)}
+.sop-saved-ok{font-size:11px;color:#16a34a;display:none}
+.sop-footer{background:var(--navy2);border-top:2px solid var(--gold);padding:.8rem 2rem;text-align:center;font-size:11px;color:#8a9ab0}
+.sop-footer span{color:var(--gold2);font-weight:600}
+
+
+/* ════════════════════════════════
+   RESPONSIVE & PROFESSIONAL OVERHAUL
+   ════════════════════════════════ */
+
+/* Reset & base */
+html{scroll-behavior:smooth}
+img{max-width:100%}
+
+/* NAV - mobile friendly */
+nav{height:auto;min-height:56px;padding:.5rem 1rem;flex-wrap:wrap;gap:.4rem}
+.nav-brand{flex-shrink:0}
+.nav-links{display:flex;gap:3px;flex-wrap:wrap}
+.nav-link{padding:6px 10px;font-size:11.5px;border-radius:6px;display:flex;align-items:center;gap:4px}
+.nav-link i{font-size:14px}
+
+/* HERO - responsive */
+.hero{padding:2.5rem 1rem;position:relative;z-index:0}
+.hero h1{font-size:clamp(1.6rem,5vw,2.8rem);margin-bottom:.8rem}
+.hero p{font-size:.9rem;padding:0 .5rem}
+.hero-badge{font-size:10px;padding:5px 14px;margin-bottom:1rem}
+.hero-cta{padding:10px 22px;font-size:13px}
+
+/* STATS */
+.stats-row{grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:.9rem .4rem}
+.stat-icon{font-size:18px}
+.stat-num{font-size:clamp(1.2rem,4vw,1.7rem)}
+.stat-label{font-size:9.5px}
+
+/* VM SECTION */
+.vm-section{padding:2rem 1rem}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.vm-card{padding:1.2rem}
+.vm-icon{width:40px;height:40px}
+.vm-icon i{font-size:18px}
+.vm-card h3{font-size:.95rem}
+.vm-card p,.vm-list li{font-size:12.5px}
+
+/* NILAI */
+.nilai-section{padding:1.5rem 1rem}
+.nilai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.nilai-card{padding:1rem .8rem}
+.nilai-card i{font-size:24px;margin-bottom:.5rem}
+.nilai-card h4{font-size:11px}
+.nilai-card p{font-size:11px}
+
+/* SHORTCUT */
+.shortcut-section{padding:1.5rem 1rem}
+.shortcut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.shortcut-card{padding:1.2rem .9rem;border-radius:10px}
+.shortcut-card i{font-size:28px;margin-bottom:.5rem}
+.shortcut-card h4{font-size:13px}
+.shortcut-card p{font-size:11px}
+
+/* VIDEO PAGE */
+.video-bg{padding:1.2rem}
+.video-ph{font-size:1.3rem !important}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.video-card{border-radius:10px}
+.video-card-info{padding:.75rem .85rem}
+.video-card-info h4{font-size:12.5px}
+.video-card-info p{font-size:11px}
+.video-thumb .play-icon{font-size:38px}
+.vt-text{font-size:9px}
+
+/* JADWAL */
+.jadwal-top{padding:1.5rem 1rem}
+.jadwal-top h2{font-size:1.3rem}
+.jadwal-body{padding:1.2rem 1rem}
+.shift-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.shift-card{border-radius:12px}
+.shift-head{padding:.85rem 1.1rem}
+.shift-head i{font-size:22px}
+.shift-head-label h3{font-size:14px}
+.shift-body{padding:1rem}
+.time-box{font-size:1.6rem;padding:.4rem .85rem;letter-spacing:1px}
+.shift-notes{font-size:12px;line-height:1.7;padding:.7rem .85rem}
+.sum-table-head{padding:.6rem 1rem}
+.sop-table th,.sop-table td{padding:5px 8px;font-size:11.5px}
+
+/* SOP POS */
+.soppos-header{padding:1.2rem 1rem;flex-wrap:wrap;gap:.8rem}
+.soppos-logo{width:44px;height:44px;font-size:16px}
+.soppos-title h2{font-size:1.2rem}
+.soppos-title p{font-size:11.5px}
+.pos-tabs-bar{padding:.6rem .8rem;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.pos-tabs-bar::-webkit-scrollbar{height:3px}
+.pos-tabs-bar::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+.pos-tab-btn{padding:5px 10px;font-size:11px;border-radius:6px;white-space:nowrap}
+.pos-panels{padding:1rem}
+.panel-top{padding:.9rem 1.1rem;border-radius:9px;margin-bottom:1rem}
+.panel-top-info h3{font-size:.95rem}
+.panel-top-info p{font-size:11px}
+.panel-num{font-size:1.6rem}
+.photo-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:1rem}
+.ph-slot{border-radius:7px}
+.ph-slot .ph-ico{font-size:17px}
+.ph-slot .ph-txt{font-size:8.5px}
+.ph-slot .ph-n{font-size:8px;padding:1px 4px}
+.sop-block{border-radius:9px;margin-bottom:.9rem}
+.sop-block-head{padding:.55rem 1rem}
+.sop-block-head span{font-size:10.5px}
+.sop-block-body{padding:.85rem 1rem}
+.sop-ta{font-size:12.5px;min-height:100px;padding:.6rem .85rem}
+.sop-save-btn{padding:5px 13px;font-size:11.5px}
+.sop-footer{padding:.7rem 1rem;font-size:11px}
+
+/* Modal */
+.modal-box{padding:1.2rem;border-radius:12px}
+.modal-title{font-size:1rem;margin-bottom:.8rem}
+.modal-video-wrap iframe,.modal-video-wrap video{height:280px}
+.url-box p{font-size:12px}
+.url-inp{padding:.55rem .85rem;font-size:12px}
+.url-btn{padding:.55rem 1.2rem;font-size:12.5px}
+
+/* PAGE FOOTER */
+.page-footer,.sop-footer{padding:.7rem 1rem;font-size:10.5px}
+
+/* ── MOBILE (max 640px) ── */
+@media(max-width:640px){
+  nav{padding:.4rem .75rem}
+  .brand-name{font-size:12px}
+  .brand-sub{font-size:8px}
+  .nav-link{padding:5px 8px;font-size:11px}
+  .nav-link i{font-size:13px}
+
+  .hero{padding:2rem .85rem}
+  .hero h1{font-size:1.7rem}
+  .hero p{font-size:.85rem}
+  .hero-cta{padding:9px 18px;font-size:12px}
+
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .stat-item{border-right:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15)}
+  .stat-item:nth-child(2n){border-right:none}
+  .stat-num{font-size:1.3rem}
+  .stat-label{font-size:9px}
+  .stat-icon{font-size:16px}
+
+  .vm-section{padding:1.5rem .85rem}
+  .vm-grid{grid-template-columns:1fr}
+  .vm-card{padding:1rem}
+
+  .nilai-section{padding:1.2rem .85rem}
+  .nilai-grid{grid-template-columns:repeat(3,1fr);gap:.5rem}
+  .nilai-card{padding:.8rem .5rem}
+  .nilai-card i{font-size:20px}
+  .nilai-card h4{font-size:10px}
+  .nilai-card p{font-size:10px}
+
+  .shortcut-section{padding:1.2rem .85rem}
+  .shortcut-grid{grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+  .shortcut-card{padding:1rem .7rem}
+  .shortcut-card i{font-size:24px}
+  .shortcut-card h4{font-size:12px}
+  .shortcut-card p{font-size:10.5px}
+
+  .video-bg{padding:.85rem}
+  .video-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+
+  .jadwal-top{padding:1.2rem .85rem}
+  .jadwal-body{padding:1rem .85rem}
+  .shift-grid{grid-template-columns:1fr}
+  .time-box{font-size:1.4rem;padding:.35rem .75rem}
+
+  .soppos-header{padding:1rem .85rem;flex-direction:column;align-items:flex-start;gap:.7rem}
+  .pos-tabs-bar{padding:.5rem .5rem}
+  .pos-tab-btn{font-size:10.5px;padding:4px 9px}
+  .pos-panels{padding:.85rem .75rem}
+  .photo-row{grid-template-columns:repeat(5,1fr);gap:.4rem}
+  .ph-slot .ph-ico{font-size:14px}
+  .ph-slot .ph-txt{font-size:8px}
+  
+  .two-col{grid-template-columns:1fr !important}
+  .modal-video-wrap iframe,.modal-video-wrap video{height:220px}
+  
+  .panel-num{display:none}
+}
+
+/* ── TABLET (641–1024px) ── */
+@media(min-width:641px) and (max-width:1024px){
+  .vm-grid{grid-template-columns:1fr 1fr}
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+  .shift-grid{grid-template-columns:repeat(2,1fr)}
+  .photo-row{grid-template-columns:repeat(5,1fr)}
+}
+
+/* ── DESKTOP (1025px+) ── */
+@media(min-width:1025px){
+  nav{height:60px;flex-wrap:nowrap;padding:0 2rem}
+  .hero{padding:3.5rem 2rem}
+  .hero h1{font-size:2.7rem}
+  .vm-section{padding:2.5rem 2rem}
+  .nilai-section{padding:2rem 2rem}
+  .shortcut-section{padding:2rem 2rem}
+  .video-bg{padding:2rem}
+  .video-grid{grid-template-columns:repeat(3,1fr);max-width:1000px}
+  .jadwal-body{padding:2rem}
+  .shift-grid{grid-template-columns:repeat(2,1fr);max-width:900px}
+  .pos-panels{padding:1.5rem 2rem;max-width:960px}
+  .photo-row{grid-template-columns:repeat(5,1fr)}
+  .modal-video-wrap iframe,.modal-video-wrap video{height:400px}
+}
+
+
+/* ════════ STRUKTUR ORGANISASI ════════ */
+.struk-page{background:linear-gradient(180deg,#0a1628 0%,#0d1f3c 100%);min-height:calc(100vh - 60px);padding:0 0 3rem 0}
+.struk-header{background:var(--navy2);border-bottom:3px solid var(--gold);padding:1.5rem 1.5rem 1.2rem;text-align:center}
+.struk-header h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold2);margin-bottom:.2rem}
+.struk-header p{font-size:12px;color:#8a9ab0}
+
+/* Tree wrapper */
+.org-tree{padding:2rem 1rem;overflow-x:auto}
+
+/* Node card */
+.org-node{display:flex;flex-direction:column;align-items:center;position:relative}
+.org-card{background:var(--navy2);border:2px solid rgba(201,168,76,.35);border-radius:14px;padding:1rem .9rem;text-align:center;width:140px;position:relative;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.org-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 8px 28px rgba(201,168,76,.2)}
+.org-card.level-pimpinan{border-color:var(--gold);background:linear-gradient(145deg,#1a2d4a,#122040);width:160px}
+.org-card.level-wakil{border-color:rgba(201,168,76,.5);width:145px}
+.org-card.level-dandru{border-color:rgba(201,168,76,.3);width:135px}
+
+/* Photo slot in card */
+.org-photo{width:70px;height:70px;border-radius:50%;border:3px solid var(--gold);margin:0 auto .6rem;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(135deg,#1e3a5f,#0a1628);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.org-photo:hover{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(201,168,76,.3)}
+.org-photo.pimpinan-photo{width:82px;height:82px;border-width:3px}
+.org-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.org-photo input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.org-photo .cam-icon{font-size:20px;color:rgba(201,168,76,.6);z-index:1}
+.org-photo:hover .cam-icon{color:var(--gold2)}
+.org-photo-hint{font-size:8.5px;color:#6b7280;margin-bottom:.35rem;letter-spacing:.3px}
+
+/* Card text */
+.org-jabatan{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);margin-bottom:.3rem;background:rgba(201,168,76,.12);padding:2px 8px;border-radius:10px;display:inline-block}
+.org-nama{font-size:12px;font-weight:700;color:var(--white);line-height:1.3;min-height:16px}
+.org-nama input{background:transparent;border:none;border-bottom:1px dashed rgba(201,168,76,.4);color:var(--white);font-size:12px;font-weight:700;text-align:center;width:110px;font-family:'Source Sans 3',sans-serif;padding:2px 0;outline:none;transition:border-color .2s}
+.org-nama input:focus{border-bottom-color:var(--gold)}
+.org-nama input::placeholder{color:#4b5563;font-weight:400}
+.org-sub{font-size:10px;color:#8a9ab0;margin-top:.25rem}
+
+/* Connector lines */
+.conn-v{width:2px;height:28px;background:linear-gradient(180deg,var(--gold),rgba(201,168,76,.4));margin:0 auto}
+.conn-h-wrap{display:flex;align-items:flex-start;position:relative}
+.conn-h-line{height:2px;background:rgba(201,168,76,.4);flex:1;margin-top:0;align-self:flex-start;margin-top:0}
+
+/* Rows */
+.org-row{display:flex;justify-content:center;gap:2rem;position:relative}
+.org-row-2{display:flex;justify-content:center;gap:3rem}
+.org-row-4{display:flex;justify-content:center;gap:2rem}
+
+/* Horizontal connector across children */
+.h-connector{position:relative;display:flex;justify-content:center;margin:0 auto}
+.h-connector::before{content:'';position:absolute;top:0;left:calc(50% - 80px);right:calc(50% - 80px);height:2px;background:rgba(201,168,76,.35)}
+
+/* Personil Anggota */
+.personil-section{margin:0 auto;max-width:700px;padding:0 1rem}
+.personil-box{background:var(--navy2);border:1px solid rgba(201,168,76,.3);border-radius:14px;padding:1.5rem;text-align:center}
+.personil-box h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold2);margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.personil-count{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--gold2);display:block;margin:.4rem 0}
+.personil-desc{font-size:12px;color:#8a9ab0;margin-top:.3rem}
+.personil-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem}
+.personil-tag{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold2);font-size:11px;padding:3px 12px;border-radius:10px}
+
+/* Connector vertical for row groups */
+.branch-wrap{display:flex;flex-direction:column;align-items:center}
+.branch-row{display:flex;justify-content:center;gap:2rem}
+.branch-col{display:flex;flex-direction:column;align-items:center}
+
+@media(max-width:640px){
+  .org-row,.org-row-2,.org-row-4,.branch-row{gap:1rem}
+  .org-card{width:115px}
+  .org-card.level-pimpinan{width:130px}
+  .org-card.level-wakil{width:118px}
+  .org-card.level-dandru{width:112px}
+  .org-photo{width:58px;height:58px}
+  .org-photo.pimpinan-photo{width:68px;height:68px}
+  .org-nama input{width:90px;font-size:11px}
+  .org-jabatan{font-size:8px;letter-spacing:.5px}
+  .conn-v{height:20px}
+}
+
+
+/* ════ ADMIN LOCK SYSTEM ════ */
+body.view-mode .sop-ta{pointer-events:none;background:#f5f5f5;color:#555;cursor:not-allowed;user-select:none}
+body.view-mode .sop-save-btn{display:none}
+body.view-mode .ph-slot input[type=file]{pointer-events:none;display:none}
+body.view-mode .ph-slot{cursor:default;border-style:solid;border-color:#ddd}
+body.view-mode .ph-slot .ph-ico,.body.view-mode .ph-slot .ph-txt{opacity:.4}
+body.view-mode .ph-del{display:none!important}
+body.view-mode .org-photo input[type=file]{pointer-events:none;display:none}
+body.view-mode .org-photo{cursor:default}
+body.view-mode .org-photo .cam-icon{display:none}
+body.view-mode .org-nama input{pointer-events:none;border-bottom-color:transparent;cursor:default}
+body.view-mode .upload-zone input[type=file]{pointer-events:none;display:none}
+body.view-mode .upload-zone{cursor:default;opacity:.6}
+body.view-mode #customVid{pointer-events:none}
+body.view-mode .pos-table-img input[type=file]{pointer-events:none;display:none}
+body.view-mode #customVid{pointer-events:none;display:none}
+body.view-mode .upload-zone{pointer-events:none;opacity:.6}
+
+/* Admin bar */
+#adminBar{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+#adminBtn{background:var(--navy2);border:2px solid var(--gold);color:var(--gold2);padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,.5);transition:all .2s;font-family:'Source Sans 3',sans-serif}
+#adminBtn:hover{background:var(--gold);color:var(--navy)}
+#adminBtn i{font-size:15px}
+#adminStatus{font-size:11px;color:var(--gold2);background:rgba(10,22,40,.9);border:1px solid rgba(201,168,76,.3);padding:4px 12px;border-radius:20px;display:none}
+
+/* Login modal */
+#loginModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99999;align-items:center;justify-content:center;padding:1rem}
+#loginModal.open{display:flex}
+#loginBox{background:var(--navy2);border:2px solid var(--gold);border-radius:16px;padding:2rem;width:100%;max-width:340px;text-align:center}
+#loginBox h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold2);margin-bottom:.4rem}
+#loginBox p{font-size:12px;color:#8a9ab0;margin-bottom:1.5rem}
+.lock-icon{font-size:40px;color:var(--gold);display:block;margin-bottom:.8rem}
+#pwInput{width:100%;padding:.7rem 1rem;border-radius:8px;border:2px solid rgba(201,168,76,.3);background:var(--navy);color:var(--white);font-size:14px;text-align:center;letter-spacing:3px;font-family:'Source Sans 3',sans-serif;margin-bottom:.8rem;transition:border .2s}
+#pwInput:focus{outline:none;border-color:var(--gold)}
+#pwInput.shake{animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#loginSubmit{width:100%;background:var(--gold);color:var(--navy);border:none;padding:.75rem;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;margin-bottom:.6rem}
+#loginSubmit:hover{background:var(--gold2)}
+#loginCancel{background:none;border:none;color:#6b7280;font-size:12px;cursor:pointer;text-decoration:underline}
+#loginErr{font-size:12px;color:#ef4444;margin-bottom:.5rem;display:none}
+.pw-hint{font-size:10px;color:#4b5563;margin-top:.6rem}
+
+/* Admin mode indicator badge */
+#adminModeBadge{display:none;position:fixed;top:68px;right:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;z-index:9998;box-shadow:0 2px 10px rgba(201,168,76,.4)}
+
 </style>
 </head>
 <body>
@@ -196,9 +582,10 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
   </div>
   <div class="nav-links">
     <button class="nav-link active" onclick="showPage('home',this)"><i class="ti ti-home"></i> Beranda</button>
-    <button class="nav-link" onclick="showPage('sop',this)"><i class="ti ti-file-text"></i> SOP Tertulis</button>
+    <button class="nav-link" onclick="showPage('sop',this)"><i class="ti ti-clipboard-list"></i> SOP Pos</button>
     <button class="nav-link" onclick="showPage('video',this)"><i class="ti ti-video"></i> Giat Beladiri</button>
     <button class="nav-link" onclick="showPage('jadwal',this)"><i class="ti ti-clock"></i> Jadwal Shift</button>
+    <button class="nav-link" onclick="showPage('struktur',this)"><i class="ti ti-hierarchy"></i> Struktur</button>
   </div>
 </nav>
 
@@ -210,14 +597,31 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
     <h1>Keamanan <span>Profesional</span><br>Terpercaya & Terstandar</h1>
     <p>Membangun sistem keamanan yang handal, terstruktur, dan berintegritas tinggi untuk melindungi aset dan personel.</p>
     <button class="hero-cta" onclick="showPage('sop',document.querySelector('.nav-link:nth-child(2)'))">
-      <i class="ti ti-file-text"></i> Lihat SOP Tertulis
+      <i class="ti ti-clipboard-list"></i> SOP Per Pos
     </button>
   </div>
 
   <div class="stats-row">
-    <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">Halaman SOP</div></div>
-    <div class="stat-item"><div class="stat-num">24/8</div><div class="stat-label">Jadwal Patroli</div></div>
-    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Terstandarisasi</div></div>
+    <div class="stat-item">
+      <div class="stat-icon"><i class="ti ti-map-pin"></i></div>
+      <div class="stat-num">27</div>
+      <div class="stat-label">Total Pos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon"><i class="ti ti-clock-24"></i></div>
+      <div class="stat-num">24/8</div>
+      <div class="stat-label">Jadwal Kerja</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon"><i class="ti ti-layout-list"></i></div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Shift Kerja</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon"><i class="ti ti-shield-check"></i></div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Terstandarisasi</div>
+    </div>
   </div>
 
   <!-- VISI MISI -->
@@ -280,7 +684,7 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
     <div class="shortcut-grid">
       <div class="shortcut-card" onclick="showPage('sop',document.querySelectorAll('.nav-link')[1])">
         <i class="ti ti-clipboard-list"></i>
-        <h4>SOP Tertulis</h4>
+        <h4>SOP Pos</h4>
         <p>Standar operasional prosedur per pos keamanan</p>
       </div>
       <div class="shortcut-card" onclick="showPage('video',document.querySelectorAll('.nav-link')[2])">
@@ -293,360 +697,2852 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
         <h4>Jadwal Shift</h4>
         <p>Pagi · Siang · Malam · Middel — jam masuk &amp; pulang</p>
       </div>
+      <div class="shortcut-card" onclick="showPage('struktur',document.querySelectorAll('.nav-link')[4])">
+        <i class="ti ti-hierarchy"></i>
+        <h4>Struktur Organisasi</h4>
+        <p>Pimpinan · Wakil · Dandru · Personil Anggota</p>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ===================== HALAMAN SOP ===================== -->
 <div class="page" id="page-sop">
-  <div class="sop-page">
-    <div class="sop-header">
-      <div class="sop-header-inner">
-        <div class="sop-logo">S</div>
-        <div class="sop-title-block">
-          <h2>SOP Manajemen Satpam</h2>
-          <p>Standar Operasional Prosedur — Unit Keamanan Profesional</p>
-          <div class="sop-meta">
-            <span class="sop-badge">Versi 2.0</span>
-            <span class="sop-badge">16 Halaman</span>
-            <span class="sop-badge">2024/2025</span>
-          </div>
-        </div>
+<div class="soppos-wrap">
+  <div class="soppos-header">
+    <div class="soppos-logo">S</div>
+    <div class="soppos-title">
+      <h2>SOP Per Pos — Standar Operasional Prosedur</h2>
+      <p>Pilih pos untuk upload foto &amp; mengisi aturan SOP — data tersimpan otomatis</p>
+      <div class="soppos-meta">
+        <span class="sp-badge">27 Pos Aktif</span>
+        <span class="sp-badge">5 Foto / Pos</span>
+        <span class="sp-badge">4 SOP / Pos</span>
+        <span class="sp-badge">2024/2025</span>
       </div>
     </div>
+  </div>
 
-    <div class="sop-body">
-      <div class="sop-pages-grid">
+  <div class="pos-tabs-bar">
+<button class="pos-tab-btn active" onclick="switchPos('pos1',this)">Pos 1</button>
+<button class="pos-tab-btn" onclick="switchPos('pos2',this)">Pos 2</button>
+<button class="pos-tab-btn" onclick="switchPos('pos3',this)">Pos 3</button>
+<button class="pos-tab-btn" onclick="switchPos('pos4',this)">Pos 4</button>
+<button class="pos-tab-btn" onclick="switchPos('pos5',this)">Pos 5</button>
+<button class="pos-tab-btn" onclick="switchPos('pos6',this)">Pos 6</button>
+<button class="pos-tab-btn" onclick="switchPos('pos7',this)">Pos 7</button>
+<button class="pos-tab-btn" onclick="switchPos('pos31',this)">Pos 31</button>
+<button class="pos-tab-btn" onclick="switchPos('pos32',this)">Pos 32</button>
+<button class="pos-tab-btn" onclick="switchPos('pos41',this)">Pos 41</button>
+<button class="pos-tab-btn" onclick="switchPos('pos42',this)">Pos 42</button>
+<button class="pos-tab-btn" onclick="switchPos('pos11',this)">Pos 1.1</button>
+<button class="pos-tab-btn" onclick="switchPos('pos21',this)">Pos 2.1</button>
+<button class="pos-tab-btn" onclick="switchPos('poslb',this)">Pos LB</button>
+<button class="pos-tab-btn" onclick="switchPos('posmd32',this)">Pos MD 32</button>
+<button class="pos-tab-btn" onclick="switchPos('posmd33',this)">Pos MD 33</button>
+<button class="pos-tab-btn" onclick="switchPos('posmdlm',this)">Pos MD LM</button>
+<button class="pos-tab-btn" onclick="switchPos('poscctv',this)">Pos CCTV</button>
+<button class="pos-tab-btn" onclick="switchPos('posg1',this)">Pos G1</button>
+<button class="pos-tab-btn" onclick="switchPos('posg2',this)">Pos G2</button>
+<button class="pos-tab-btn" onclick="switchPos('posproyek',this)">Pos Proyek</button>
+<button class="pos-tab-btn" onclick="switchPos('pospo',this)">Pos P.O</button>
+<button class="pos-tab-btn" onclick="switchPos('posss',this)">Pos SS</button>
+<button class="pos-tab-btn" onclick="switchPos('posloby',this)">Pos Lobby</button>
+<button class="pos-tab-btn" onclick="switchPos('poslf',this)">Pos LF</button>
+<button class="pos-tab-btn" onclick="switchPos('poslb2',this)">Pos LB</button>
+<button class="pos-tab-btn" onclick="switchPos('posmalam',this)">Pos Malam</button>
+  </div>
 
-        <!-- HALAMAN 1 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 1 — Cover & Pengantar</span>
-            <span class="sop-page-num">1 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Standar Operasional Prosedur Satuan Pengamanan</h4>
-            <div class="two-col" style="margin-top:.75rem">
-              <div class="info-box"><strong>Nomor Dokumen</strong>SOP-SAT/001/2024</div>
-              <div class="info-box"><strong>Status Dokumen</strong>Aktif & Berlaku</div>
-              <div class="info-box"><strong>Tanggal Terbit</strong>1 Januari 2024</div>
-              <div class="info-box"><strong>Revisi Ke</strong>2 (Dua)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HALAMAN 2 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 2 — Tujuan & Ruang Lingkup</span>
-            <span class="sop-page-num">2 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Tujuan</h4>
-            <p>SOP ini bertujuan untuk memberikan panduan baku dalam pelaksanaan tugas pengamanan agar terlaksana secara profesional, terstandar, dan dapat dipertanggungjawabkan.</p>
-            <div class="sop-divider"></div>
-            <h4>Ruang Lingkup</h4>
-            <ul>
-              <li>Seluruh personel satpam aktif</li>
-              <li>Area pengamanan dalam dan luar gedung</li>
-              <li>Seluruh shift kerja (pagi, siang, malam)</li>
-              <li>Kegiatan patroli dan penjagaan pos</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- HALAMAN 3 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 3 — Struktur Organisasi</span>
-            <span class="sop-page-num">3 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Hierarki Komando Satpam</h4>
-            <table class="sop-table">
-              <tr><th>Jabatan</th><th>Kode</th><th>Wewenang</th><th>Status</th></tr>
-              <tr><td>Kepala Satpam</td><td>KS-001</td><td>Komando penuh</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Koordinator Shift</td><td>KS-002</td><td>Pengawas lapangan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Anggota Senior</td><td>AS-001</td><td>Patroli & pengamanan</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-              <tr><td>Anggota Junior</td><td>AJ-001</td><td>Tugas pokok</td><td><span class="badge-status badge-aktif">Aktif</span></td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 4 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 4 — Prosedur Serah Terima Tugas</span>
-            <span class="sop-page-num">4 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Tata Cara Pergantian Shift</h4>
-            <div class="step-grid"><div class="step-num">1</div><p>Petugas datang 15 menit sebelum jadwal shift dimulai</p></div>
-            <div class="step-grid"><div class="step-num">2</div><p>Laporan kondisi situasi dari petugas shift sebelumnya</p></div>
-            <div class="step-grid"><div class="step-num">3</div><p>Pengecekan perlengkapan dan peralatan tugas</p></div>
-            <div class="step-grid"><div class="step-num">4</div><p>Penandatanganan buku serah terima tugas</p></div>
-            <div class="step-grid"><div class="step-num">5</div><p>Petugas shift lama diperbolehkan meninggalkan pos</p></div>
-          </div>
-        </div>
-
-        <!-- HALAMAN 5 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 5 — SOP Penjagaan Pos</span>
-            <span class="sop-page-num">5 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Standar Penjagaan Pos Utama</h4>
-            <p>Petugas wajib berada di pos selama jam tugas. Berikut ketentuan pokok:</p>
-            <ul style="margin-top:.5rem">
-              <li>Berpakaian seragam lengkap dan rapi</li>
-              <li>Bersikap sopan kepada setiap tamu dan pengunjung</li>
-              <li>Mencatat setiap tamu yang masuk di buku register</li>
-              <li>Meminta identitas tamu sebelum diizinkan masuk</li>
-              <li>Dilarang meninggalkan pos tanpa izin koordinator</li>
-              <li>Menjaga kebersihan dan kerapian area pos</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- HALAMAN 6 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 6 — SOP Patroli Rutin</span>
-            <span class="sop-page-num">6 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Jadwal & Rute Patroli</h4>
-            <table class="sop-table">
-              <tr><th>Waktu</th><th>Rute</th><th>Jenis</th><th>Frekuensi</th></tr>
-              <tr><td>06.00–08.00</td><td>Zona A (Depan)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>10.00–12.00</td><td>Zona B (Dalam)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>14.00–16.00</td><td>Zona C (Belakang)</td><td><span class="badge-status badge-rutin">Rutin</span></td><td>2x</td></tr>
-              <tr><td>21.00–23.00</td><td>Keliling Penuh</td><td><span class="badge-status badge-wajib">Wajib</span></td><td>3x</td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 7 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 7 — Prosedur Penanganan Tamu</span>
-            <span class="sop-page-num">7 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Alur Penerimaan Tamu</h4>
-            <div class="step-grid"><div class="step-num">1</div><p>Sapa tamu dengan salam dan sikap ramah</p></div>
-            <div class="step-grid"><div class="step-num">2</div><p>Tanyakan keperluan dan tujuan kunjungan</p></div>
-            <div class="step-grid"><div class="step-num">3</div><p>Periksa identitas diri (KTP/SIM) dan catat di buku tamu</p></div>
-            <div class="step-grid"><div class="step-num">4</div><p>Hubungi pihak yang dituju untuk konfirmasi</p></div>
-            <div class="step-grid"><div class="step-num">5</div><p>Berikan kartu tamu dan arahkan ke tujuan</p></div>
-            <div class="step-grid"><div class="step-num">6</div><p>Pastikan kartu tamu dikembalikan saat keluar</p></div>
-          </div>
-        </div>
-
-        <!-- HALAMAN 8 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 8 — Penanganan Keadaan Darurat</span>
-            <span class="sop-page-num">8 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Prosedur Tanggap Darurat</h4>
-            <div class="two-col">
-              <div class="info-box"><strong>Kebakaran</strong>Aktifkan alarm, evakuasi, hubungi 113 (Damkar)</div>
-              <div class="info-box"><strong>Pencurian</strong>Amankan area, hubungi atasan & polisi 110</div>
-              <div class="info-box"><strong>Kecelakaan</strong>Berikan P3K awal, hubungi ambulans 118</div>
-              <div class="info-box"><strong>Bencana Alam</strong>Evakuasi ke titik kumpul, aktifkan sirine</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HALAMAN 9 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 9 — Penggunaan Peralatan</span>
-            <span class="sop-page-num">9 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Inventaris & Penggunaan Perlengkapan Tugas</h4>
-            <table class="sop-table">
-              <tr><th>Peralatan</th><th>Kondisi</th><th>Kewajiban</th></tr>
-              <tr><td>Radio HT</td><td>Selalu aktif</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
-              <tr><td>Senter</td><td>Baterai penuh</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
-              <tr><td>Peluit</td><td>Siap pakai</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
-              <tr><td>Borgol</td><td>Terkunci aman</td><td><span class="badge-status badge-rutin">Kondisional</span></td></tr>
-              <tr><td>CCTV Monitor</td><td>Aktif 24 jam</td><td><span class="badge-status badge-wajib">Wajib</span></td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 10 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 10 — Pelaporan & Dokumentasi</span>
-            <span class="sop-page-num">10 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Standar Pelaporan Harian</h4>
-            <ul>
-              <li>Laporan harian dibuat setiap akhir shift oleh koordinator</li>
-              <li>Format laporan menggunakan form standar F-SAT-01</li>
-              <li>Laporan diserahkan ke Kepala Satpam maks. 30 menit setelah shift</li>
-              <li>Setiap kejadian penting didokumentasikan dengan foto jika memungkinkan</li>
-              <li>Laporan insiden menggunakan form khusus F-INS-01</li>
-              <li>Semua dokumen disimpan minimal 2 tahun</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- HALAMAN 11 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 11 — Kode Etik & Disiplin</span>
-            <span class="sop-page-num">11 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Kode Etik Satpam</h4>
-            <div class="two-col">
-              <div>
-                <p style="font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Dilarang Keras</p>
-                <ul style="color:#dc2626">
-                  <li>Menerima suap atau gratifikasi</li>
-                  <li>Tidur saat bertugas</li>
-                  <li>Menggunakan HP pribadi berlebihan</li>
-                  <li>Meninggalkan pos tanpa izin</li>
-                </ul>
-              </div>
-              <div>
-                <p style="font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Diwajibkan</p>
-                <ul style="color:#065f46">
-                  <li>Berseragam lengkap dan rapi</li>
-                  <li>Bersikap sopan dan profesional</li>
-                  <li>Melapor setiap kejadian</li>
-                  <li>Patuh pada rantai komando</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HALAMAN 12 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 12 — Pelatihan & Pengembangan</span>
-            <span class="sop-page-num">12 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Program Pelatihan Berkala</h4>
-            <table class="sop-table">
-              <tr><th>Jenis Pelatihan</th><th>Frekuensi</th><th>Peserta</th></tr>
-              <tr><td>Bela Diri Dasar</td><td>Bulanan</td><td>Semua anggota</td></tr>
-              <tr><td>P3K & Evakuasi</td><td>Triwulan</td><td>Semua anggota</td></tr>
-              <tr><td>Penggunaan APAR</td><td>Semesteran</td><td>Semua anggota</td></tr>
-              <tr><td>Kepemimpinan</td><td>Tahunan</td><td>Koordinator</td></tr>
-              <tr><td>Teknologi CCTV</td><td>Semesteran</td><td>Operator</td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 13 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 13 — Sistem Sanksi</span>
-            <span class="sop-page-num">13 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Tingkatan Sanksi Pelanggaran</h4>
-            <table class="sop-table">
-              <tr><th>Tingkat</th><th>Jenis Pelanggaran</th><th>Sanksi</th></tr>
-              <tr><td>Ringan</td><td>Terlambat, tidak rapi</td><td>Teguran lisan</td></tr>
-              <tr><td>Sedang</td><td>Absen tanpa izin</td><td>Peringatan tertulis</td></tr>
-              <tr><td>Berat</td><td>Tidur saat jaga</td><td>Skorsing 3 hari</td></tr>
-              <tr><td>Sangat Berat</td><td>Korupsi, pengkhianatan</td><td>PHK + laporan polisi</td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 14 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 14 — Koordinasi Eksternal</span>
-            <span class="sop-page-num">14 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Nomor Penting & Koordinasi</h4>
-            <div class="two-col">
-              <div class="info-box"><strong>Polsek Setempat</strong>Hubungi: 021-XXXXXXX / 110</div>
-              <div class="info-box"><strong>Pemadam Kebakaran</strong>Hubungi: 113</div>
-              <div class="info-box"><strong>Ambulans / BPBD</strong>Hubungi: 118 / 119</div>
-              <div class="info-box"><strong>Manajemen Gedung</strong>Hubungi: Ext. 100</div>
-            </div>
-            <div class="sop-divider"></div>
-            <p>Koordinasi rutin dengan polsek dilaksanakan setiap bulan. Laporan situasi keamanan disampaikan ke pihak manajemen setiap minggu.</p>
-          </div>
-        </div>
-
-        <!-- HALAMAN 15 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 15 — Evaluasi & Penilaian Kinerja</span>
-            <span class="sop-page-num">15 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Indikator Kinerja Utama (KPI)</h4>
-            <table class="sop-table">
-              <tr><th>Indikator</th><th>Target</th><th>Frekuensi Ukur</th></tr>
-              <tr><td>Kehadiran tepat waktu</td><td>≥ 95%</td><td>Bulanan</td></tr>
-              <tr><td>Laporan harian lengkap</td><td>100%</td><td>Harian</td></tr>
-              <tr><td>Patroli sesuai jadwal</td><td>≥ 90%</td><td>Mingguan</td></tr>
-              <tr><td>Penanganan insiden</td><td>Respon &lt; 5 menit</td><td>Per kejadian</td></tr>
-              <tr><td>Kepuasan pengguna</td><td>≥ 4.0/5.0</td><td>Triwulan</td></tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- HALAMAN 16 -->
-        <div class="sop-page-card">
-          <div class="sop-page-header">
-            <span>Halaman 16 — Penutup & Pengesahan</span>
-            <span class="sop-page-num">16 / 16</span>
-          </div>
-          <div class="sop-page-content">
-            <h4>Lembar Pengesahan</h4>
-            <p style="margin-bottom:1rem">SOP ini ditetapkan dan berlaku sejak tanggal ditandatangani. Setiap perubahan harus melalui persetujuan Kepala Satpam dan diketahui Manajemen.</p>
-            <div class="two-col">
-              <div style="text-align:center;padding:1rem;border:1px dashed #d4c89a;border-radius:8px">
-                <p style="font-size:11px;color:#6b7280;margin-bottom:2rem">Dibuat oleh,</p>
-                <div style="border-top:1px solid #374151;padding-top:8px">
-                  <p style="font-size:12px;font-weight:600;color:#374151">Koordinator Satpam</p>
-                  <p style="font-size:11px;color:#6b7280">NIP: SAT-001</p>
-                </div>
-              </div>
-              <div style="text-align:center;padding:1rem;border:1px dashed #d4c89a;border-radius:8px">
-                <p style="font-size:11px;color:#6b7280;margin-bottom:2rem">Disahkan oleh,</p>
-                <div style="border-top:1px solid #374151;padding-top:8px">
-                  <p style="font-size:12px;font-weight:600;color:#374151">Kepala Satpam</p>
-                  <p style="font-size:11px;color:#6b7280">NIP: KS-001</p>
-                </div>
-              </div>
-            </div>
-            <div style="margin-top:1rem;padding:.75rem;background:#faf7f0;border-radius:8px;border:1px solid #d4c89a;text-align:center">
-              <p style="font-size:12px;color:#6b7280">Dokumen ini adalah milik Unit Satpam dan bersifat <strong>RAHASIA INTERNAL</strong> — Dilarang disebarkan tanpa izin</p>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- end sop-pages-grid -->
-    </div><!-- end sop-body -->
-
-    <div class="sop-footer">
-      <p>Dokumen SOP Resmi — <span>Unit Satpam Profesional</span> © 2024 — Total 16 Halaman</p>
+  <div class="pos-panels">
+<div class="pos-panel active" id="panel_pos1">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 1 — Pos Utama 1</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 1</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos1_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos1_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos1_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos1_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos1_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos1_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos1_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos1_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos1_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos1_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos1_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos1_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos1_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos1_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos1_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 1 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos1_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos1_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos1_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos1_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 1 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos1_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos1_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos1_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos1_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 1 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos1_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos1_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos1_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos1_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 1 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos1_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos1_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos1_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos1_3">✓ Tersimpan</span>
     </div>
   </div>
 </div>
+</div><div class="pos-panel" id="panel_pos2">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 2 — Pos Utama 2</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 2</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos2_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos2_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos2_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos2_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos2_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos2_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos2_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos2_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos2_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos2_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos2_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos2_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos2_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos2_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos2_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 2 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos2_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos2_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos2_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos2_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 2 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos2_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos2_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos2_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos2_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 2 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos2_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos2_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos2_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos2_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 2 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos2_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos2_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos2_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos2_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos3">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 3 — Pos Utama 3</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 3</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos3_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos3_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos3_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos3_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos3_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos3_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos3_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos3_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos3_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos3_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos3_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos3_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos3_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos3_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos3_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 3 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos3_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos3_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos3_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos3_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 3 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos3_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos3_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos3_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos3_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 3 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos3_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos3_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos3_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos3_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 3 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos3_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos3_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos3_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos3_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos4">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 4 — Pos Utama 4</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 4</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos4_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos4_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos4_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos4_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos4_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos4_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos4_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos4_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos4_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos4_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos4_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos4_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos4_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos4_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos4_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 4 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos4_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos4_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos4_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos4_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 4 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos4_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos4_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos4_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos4_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 4 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos4_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos4_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos4_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos4_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 4 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos4_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos4_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos4_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos4_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos5">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 5 — Pos Utama 5</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 5</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos5_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos5_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos5_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos5_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos5_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos5_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos5_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos5_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos5_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos5_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos5_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos5_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos5_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos5_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos5_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 5 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos5_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos5_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos5_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos5_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 5 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos5_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos5_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos5_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos5_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 5 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos5_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos5_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos5_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos5_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 5 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos5_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos5_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos5_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos5_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos6">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 6 — Pos Utama 6</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 6</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos6_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos6_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos6_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos6_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos6_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos6_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos6_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos6_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos6_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos6_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos6_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos6_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos6_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos6_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos6_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 6 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos6_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos6_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos6_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos6_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 6 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos6_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos6_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos6_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos6_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 6 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos6_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos6_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos6_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos6_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 6 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos6_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos6_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos6_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos6_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos7">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 7 — Pos Utama 7</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 7</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos7_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos7_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos7_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos7_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos7_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos7_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos7_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos7_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos7_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos7_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos7_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos7_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos7_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos7_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos7_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 7 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos7_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos7_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos7_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos7_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 7 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos7_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos7_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos7_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos7_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 7 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos7_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos7_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos7_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos7_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 7 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos7_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos7_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos7_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos7_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos31">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 31 — Pos Area 31</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 31</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos31_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos31_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos31_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos31_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos31_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos31_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos31_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos31_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos31_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos31_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos31_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos31_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos31_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos31_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos31_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 31 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos31_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos31_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos31_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos31_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 31 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos31_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos31_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos31_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos31_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 31 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos31_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos31_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos31_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos31_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 31 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos31_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos31_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos31_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos31_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos32">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 32 — Pos Area 32</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 32</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos32_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos32_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos32_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos32_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos32_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos32_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos32_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos32_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos32_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos32_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos32_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos32_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos32_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos32_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos32_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 32 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos32_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos32_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos32_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos32_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 32 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos32_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos32_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos32_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos32_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 32 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos32_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos32_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos32_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos32_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 32 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos32_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos32_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos32_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos32_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos41">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 41 — Pos Area 41</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 41</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos41_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos41_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos41_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos41_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos41_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos41_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos41_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos41_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos41_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos41_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos41_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos41_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos41_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos41_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos41_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 41 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos41_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos41_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos41_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos41_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 41 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos41_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos41_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos41_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos41_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 41 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos41_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos41_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos41_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos41_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 41 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos41_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos41_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos41_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos41_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos42">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 42 — Pos Area 42</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 42</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos42_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos42_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos42_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos42_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos42_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos42_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos42_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos42_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos42_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos42_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos42_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos42_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos42_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos42_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos42_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 42 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos42_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos42_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos42_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos42_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 42 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos42_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos42_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos42_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos42_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 42 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos42_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos42_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos42_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos42_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 42 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos42_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos42_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos42_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos42_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos11">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 1.1 — Sub Pos 1.1</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 1.1</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos11_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos11_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos11_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos11_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos11_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos11_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos11_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos11_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos11_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos11_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos11_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos11_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos11_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos11_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos11_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 1.1 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos11_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos11_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos11_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos11_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 1.1 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos11_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos11_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos11_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos11_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 1.1 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos11_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos11_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos11_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos11_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 1.1 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos11_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos11_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos11_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos11_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pos21">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos 2.1 — Sub Pos 2.1</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos 2.1</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pos21_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos21_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos21_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pos21_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos21_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos21_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pos21_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos21_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos21_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pos21_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos21_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos21_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pos21_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pos21_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pos21_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos 2.1 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos21_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pos21_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos21_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos21_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos 2.1 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos21_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pos21_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos21_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos21_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos 2.1 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos21_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pos21_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos21_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos21_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos 2.1 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pos21_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pos21_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pos21_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pos21_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_poslb">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos LB — Pos Lobby</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos LB</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_poslb_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_poslb_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_poslb_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_poslb_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_poslb_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos LB · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_poslb_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos LB · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_poslb_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos LB · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_poslb_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos LB · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_poslb_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posmd32">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos MD 32 — Pos Middle 32</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos MD 32</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posmd32_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd32_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd32_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posmd32_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd32_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd32_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posmd32_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd32_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd32_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posmd32_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd32_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd32_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posmd32_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd32_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd32_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos MD 32 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd32_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posmd32_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd32_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd32_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos MD 32 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd32_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posmd32_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd32_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd32_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos MD 32 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd32_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posmd32_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd32_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd32_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos MD 32 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd32_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posmd32_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd32_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd32_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posmd33">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos MD 33 — Pos Middle 33</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos MD 33</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posmd33_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd33_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd33_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posmd33_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd33_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd33_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posmd33_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd33_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd33_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posmd33_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd33_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd33_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posmd33_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmd33_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmd33_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos MD 33 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd33_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posmd33_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd33_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd33_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos MD 33 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd33_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posmd33_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd33_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd33_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos MD 33 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd33_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posmd33_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd33_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd33_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos MD 33 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmd33_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posmd33_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmd33_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmd33_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posmdlm">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos MD LM — Pos Middle Lama</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos MD LM</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posmdlm_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmdlm_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmdlm_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posmdlm_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmdlm_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmdlm_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posmdlm_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmdlm_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmdlm_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posmdlm_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmdlm_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmdlm_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posmdlm_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmdlm_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmdlm_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos MD LM · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmdlm_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posmdlm_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmdlm_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmdlm_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos MD LM · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmdlm_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posmdlm_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmdlm_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmdlm_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos MD LM · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmdlm_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posmdlm_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmdlm_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmdlm_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos MD LM · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmdlm_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posmdlm_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmdlm_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmdlm_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_poscctv">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos CCTV — Ruang Monitor CCTV</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos CCTV</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_poscctv_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poscctv_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poscctv_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_poscctv_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poscctv_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poscctv_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_poscctv_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poscctv_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poscctv_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_poscctv_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poscctv_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poscctv_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_poscctv_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poscctv_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poscctv_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos CCTV · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poscctv_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_poscctv_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poscctv_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poscctv_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos CCTV · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poscctv_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_poscctv_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poscctv_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poscctv_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos CCTV · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poscctv_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_poscctv_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poscctv_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poscctv_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos CCTV · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poscctv_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_poscctv_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poscctv_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poscctv_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posg1">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos G1 — Pos Gerbang 1</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos G1</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posg1_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg1_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg1_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posg1_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg1_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg1_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posg1_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg1_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg1_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posg1_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg1_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg1_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posg1_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg1_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg1_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos G1 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg1_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posg1_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg1_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg1_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos G1 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg1_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posg1_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg1_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg1_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos G1 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg1_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posg1_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg1_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg1_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos G1 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg1_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posg1_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg1_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg1_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posg2">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos G2 — Pos Gerbang 2</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos G2</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posg2_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg2_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg2_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posg2_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg2_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg2_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posg2_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg2_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg2_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posg2_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg2_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg2_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posg2_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posg2_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posg2_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos G2 · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg2_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posg2_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg2_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg2_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos G2 · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg2_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posg2_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg2_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg2_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos G2 · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg2_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posg2_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg2_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg2_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos G2 · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posg2_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posg2_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posg2_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posg2_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posproyek">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos Proyek — Pos Area Proyek</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos Proyek</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posproyek_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posproyek_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posproyek_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posproyek_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posproyek_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posproyek_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posproyek_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posproyek_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posproyek_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posproyek_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posproyek_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posproyek_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posproyek_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posproyek_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posproyek_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos Proyek · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posproyek_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posproyek_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posproyek_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posproyek_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos Proyek · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posproyek_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posproyek_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posproyek_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posproyek_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos Proyek · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posproyek_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posproyek_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posproyek_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posproyek_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos Proyek · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posproyek_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posproyek_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posproyek_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posproyek_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_pospo">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos P.O — Pos P.O</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos P.O</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_pospo_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pospo_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pospo_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_pospo_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pospo_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pospo_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_pospo_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pospo_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pospo_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_pospo_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pospo_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pospo_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_pospo_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_pospo_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_pospo_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos P.O · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pospo_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_pospo_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pospo_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pospo_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos P.O · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pospo_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_pospo_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pospo_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pospo_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos P.O · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pospo_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_pospo_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pospo_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pospo_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos P.O · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_pospo_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_pospo_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_pospo_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_pospo_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posss">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos SS — Pos SS</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos SS</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posss_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posss_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posss_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posss_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posss_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posss_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posss_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posss_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posss_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posss_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posss_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posss_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posss_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posss_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posss_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos SS · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posss_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posss_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posss_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posss_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos SS · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posss_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posss_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posss_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posss_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos SS · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posss_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posss_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posss_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posss_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos SS · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posss_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posss_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posss_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posss_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posloby">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos Lobby — Pos Lobby Utama</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos Lobby</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posloby_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posloby_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posloby_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posloby_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posloby_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posloby_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posloby_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posloby_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posloby_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posloby_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posloby_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posloby_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posloby_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posloby_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posloby_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos Lobby · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posloby_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posloby_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posloby_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posloby_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos Lobby · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posloby_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posloby_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posloby_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posloby_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos Lobby · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posloby_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posloby_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posloby_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posloby_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos Lobby · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posloby_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posloby_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posloby_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posloby_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_poslf">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos LF — Pos LF</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos LF</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_poslf_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslf_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslf_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_poslf_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslf_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslf_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_poslf_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslf_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslf_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_poslf_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslf_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslf_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_poslf_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslf_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslf_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos LF · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslf_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_poslf_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslf_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslf_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos LF · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslf_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_poslf_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslf_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslf_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos LF · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslf_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_poslf_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslf_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslf_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos LF · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslf_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_poslf_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslf_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslf_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_poslb2">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos LB — Pos LB</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos LB</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_poslb2_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb2_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb2_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_poslb2_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb2_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb2_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_poslb2_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb2_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb2_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_poslb2_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb2_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb2_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_poslb2_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_poslb2_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_poslb2_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos LB · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb2_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_poslb2_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb2_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb2_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos LB · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb2_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_poslb2_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb2_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb2_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos LB · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb2_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_poslb2_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb2_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb2_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos LB · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_poslb2_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_poslb2_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_poslb2_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_poslb2_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div><div class="pos-panel" id="panel_posmalam">
+  <div class="panel-top">
+    <div class="panel-top-info">
+      <h3>Pos Malam — Pos Jaga Malam</h3>
+      <p>Upload foto dokumentasi &amp; isi aturan SOP untuk pos ini</p>
+    </div>
+    <div class="panel-num">Pos Malam</div>
+  </div>
+  <div class="photo-sec-title"><i class="ti ti-camera"></i> Foto Dokumentasi Pos (5 foto)</div>
+  <div class="photo-row"><div class="ph-slot" id="ph_posmalam_1">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmalam_1')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmalam_1')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 1</div>
+  <span class="ph-n">1</span>
+</div><div class="ph-slot" id="ph_posmalam_2">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmalam_2')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmalam_2')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 2</div>
+  <span class="ph-n">2</span>
+</div><div class="ph-slot" id="ph_posmalam_3">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmalam_3')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmalam_3')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 3</div>
+  <span class="ph-n">3</span>
+</div><div class="ph-slot" id="ph_posmalam_4">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmalam_4')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmalam_4')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 4</div>
+  <span class="ph-n">4</span>
+</div><div class="ph-slot" id="ph_posmalam_5">
+  <input type="file" accept="image/*" onchange="loadPhoto(this,'ph_posmalam_5')">
+  <button class="ph-del" onclick="delPhoto(event,'ph_posmalam_5')">×</button>
+  <i class="ti ti-camera ph-ico"></i>
+  <div class="ph-txt">Foto 5</div>
+  <span class="ph-n">5</span>
+</div></div>
+  <div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 1 — Aturan Umum</span>
+    <small>Pos Malam · 1/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmalam_0" placeholder="Tuliskan aturan umum yang berlaku di pos ini...
+Contoh:
+- Petugas wajib berdiri siap selama jam tugas
+- Dilarang meninggalkan pos tanpa izin koordinator" oninput="autoSave('sop_posmalam_0')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmalam_0')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmalam_0">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 2 — Prosedur Penjagaan</span>
+    <small>Pos Malam · 2/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmalam_1" placeholder="Tuliskan prosedur penjagaan di pos ini...
+Contoh:
+- Langkah 1: ...
+- Langkah 2: ...
+- dst..." oninput="autoSave('sop_posmalam_1')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmalam_1')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmalam_1">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 3 — Situasi Khusus</span>
+    <small>Pos Malam · 3/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmalam_2" placeholder="Tuliskan cara penanganan situasi khusus...
+Contoh:
+- Bila ada tamu mencurigakan: ...
+- Bila ada kerusakan: ...
+- dst..." oninput="autoSave('sop_posmalam_2')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmalam_2')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmalam_2">✓ Tersimpan</span>
+    </div>
+  </div>
+</div><div class="sop-block">
+  <div class="sop-block-head">
+    <span>SOP 4 — Prosedur Darurat</span>
+    <small>Pos Malam · 4/4</small>
+  </div>
+  <div class="sop-block-body">
+    <textarea class="sop-ta" id="sop_posmalam_3" placeholder="Tuliskan prosedur darurat pos ini...
+Contoh:
+- Kebakaran: Hubungi 113, evakuasi area
+- Pencurian: Hubungi koordinator & polisi 110" oninput="autoSave('sop_posmalam_3')"></textarea>
+    <div class="sop-save-row">
+      <button class="sop-save-btn" onclick="saveSop('sop_posmalam_3')">💾 Simpan</button>
+      <span class="sop-saved-ok" id="ok_sop_posmalam_3">✓ Tersimpan</span>
+    </div>
+  </div>
+</div>
+</div>  </div>
 
+  <div class="sop-footer">
+    <p>SOP Per Pos — <span>Unit Satpam Profesional</span> © 2024 · Data tersimpan di browser lokal</p>
+  </div>
+</div>
+</div>
 
-<!-- ===================== HALAMAN VIDEO BELADIRI ===================== -->
 <div class="page" id="page-video">
   <div class="video-bg">
     <div style="border-bottom:2px solid rgba(201,168,76,.25);padding-bottom:1.5rem;margin-bottom:2rem">
@@ -786,7 +3682,6 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
               <strong>Ketentuan:</strong>
               • Apel pagi pukul 07.00 sebelum bertugas<br>
               • Serah terima dengan shift malam pukul 07.00<br>
-              • Patroli perdana pukul 07.30<br>
               • Laporan harian diserahkan pukul 15.00
             </div>
           </div>
@@ -839,7 +3734,6 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
             <div class="shift-notes">
               <strong>Ketentuan:</strong>
               • Serah terima dengan shift siang pukul 21.30<br>
-              • Patroli wajib tiap 1 jam sekali<br>
               • Dilarang tidur pukul 22.00–04.00 (jam rawan)<br>
               • Koordinasi via HT tiap 2 jam semua pos
             </div>
@@ -867,7 +3761,6 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
               <strong>Ketentuan:</strong>
               • Mengisi kebutuhan personel jam sibuk siang<br>
               • Koordinasi dengan shift pagi dan siang<br>
-              • Backup patroli area padat pengunjung<br>
               • Laporan diserahkan pukul 19.30
             </div>
           </div>
@@ -900,6 +3793,146 @@ nav{background:var(--navy2);border-bottom:2px solid var(--gold);padding:0 2rem;d
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     STRUKTUR ORGANISASI
+═══════════════════════════════════════ -->
+<div class="page" id="page-struktur">
+<div class="struk-page">
+
+  <div class="struk-header">
+    <h2><i class="ti ti-hierarchy" style="color:var(--gold);margin-right:8px"></i>Struktur Organisasi Satpam</h2>
+    <p>Klik foto untuk upload gambar — klik nama untuk mengedit</p>
+  </div>
+
+  <div class="org-tree">
+
+    <!-- ══ LEVEL 1: PIMPINAN ══ -->
+    <div class="branch-wrap">
+      <div class="org-node">
+        <div class="org-card level-pimpinan">
+          <div class="org-photo pimpinan-photo" id="pWrap_pimpinan">
+            <input type="file" accept="image/*" onchange="loadOrgPhoto(this,'pWrap_pimpinan')">
+            <i class="ti ti-camera cam-icon"></i>
+          </div>
+          <div class="org-jabatan">Pimpinan</div>
+          <div class="org-nama"><input type="text" id="nm_pimpinan" placeholder="Nama Pimpinan" value="Diki" oninput="saveOrgName('pimpinan')"></div>
+        </div>
+      </div>
+
+      <!-- V line down -->
+      <div class="conn-v"></div>
+
+      <!-- ══ LEVEL 2: WAKIL PIMPINAN ══ -->
+      <!-- horizontal line spanning both wakil -->
+      <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+        <div style="width:2px;height:0px;background:transparent"></div>
+        <!-- H bar -->
+        <div style="position:relative;display:flex;justify-content:center;width:100%">
+          <div style="display:flex;align-items:flex-start;gap:0;width:360px;max-width:95vw">
+            <!-- left branch -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+              <div style="width:50%;height:2px;background:rgba(201,168,76,.4);align-self:flex-end"></div>
+              <div class="conn-v" style="height:20px"></div>
+              <div class="org-node">
+                <div class="org-card level-wakil">
+                  <div class="org-photo" id="pWrap_wakil1">
+                    <input type="file" accept="image/*" onchange="loadOrgPhoto(this,'pWrap_wakil1')">
+                    <i class="ti ti-camera cam-icon"></i>
+                  </div>
+                  <div class="org-jabatan">Wakil Pimpinan</div>
+                  <div class="org-sub" style="color:var(--gold);font-size:9.5px;font-weight:700;margin-bottom:3px">Posko 1</div>
+                  <div class="org-nama"><input type="text" id="nm_wakil1" placeholder="Nama Wakil 1" value="Batin" oninput="saveOrgName('wakil1')"></div>
+                </div>
+              </div>
+            </div>
+            <!-- center vertical of H -->
+            <div style="width:2px;height:2px;background:rgba(201,168,76,.4);margin-top:0;align-self:flex-start"></div>
+            <!-- right branch -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+              <div style="width:50%;height:2px;background:rgba(201,168,76,.4);align-self:flex-start"></div>
+              <div class="conn-v" style="height:20px"></div>
+              <div class="org-node">
+                <div class="org-card level-wakil">
+                  <div class="org-photo" id="pWrap_wakil2">
+                    <input type="file" accept="image/*" onchange="loadOrgPhoto(this,'pWrap_wakil2')">
+                    <i class="ti ti-camera cam-icon"></i>
+                  </div>
+                  <div class="org-jabatan">Wakil Pimpinan</div>
+                  <div class="org-sub" style="color:var(--gold);font-size:9.5px;font-weight:700;margin-bottom:3px">Posko 2</div>
+                  <div class="org-nama"><input type="text" id="nm_wakil2" placeholder="Nama Wakil 2" value="Davidson" oninput="saveOrgName('wakil2')"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- V lines down to dandru -->
+        <div style="display:flex;justify-content:center;width:360px;max-width:95vw;gap:0;margin-top:0">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+            <div class="conn-v"></div>
+
+            <!-- ══ LEVEL 3 LEFT: DANKAS ══ -->
+            <div class="org-node">
+              <div class="org-card level-dandru">
+                <div class="org-photo" id="pWrap_dankas">
+                  <input type="file" accept="image/*" onchange="loadOrgPhoto(this,'pWrap_dankas')">
+                  <i class="ti ti-camera cam-icon"></i>
+                </div>
+                <div class="org-jabatan">Dandru</div>
+                <div class="org-sub" style="color:#a78bfa;font-size:9.5px;font-weight:700;margin-bottom:3px">Dankas</div>
+                <div class="org-nama"><input type="text" id="nm_dankas" placeholder="Nama Dankas" value="Ghandi" oninput="saveOrgName('dankas')"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+            <div class="conn-v"></div>
+
+            <!-- ══ LEVEL 3 RIGHT: DANDAM ══ -->
+            <div class="org-node">
+              <div class="org-card level-dandru">
+                <div class="org-photo" id="pWrap_dandam">
+                  <input type="file" accept="image/*" onchange="loadOrgPhoto(this,'pWrap_dandam')">
+                  <i class="ti ti-camera cam-icon"></i>
+                </div>
+                <div class="org-jabatan">Dandru</div>
+                <div class="org-sub" style="color:#a78bfa;font-size:9.5px;font-weight:700;margin-bottom:3px">Dandam</div>
+                <div class="org-nama"><input type="text" id="nm_dandam" placeholder="Nama Dandam" value="Rio" oninput="saveOrgName('dandam')"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end wakil level -->
+
+      <!-- V line to personil -->
+      <div class="conn-v" style="height:32px;margin-top:0"></div>
+
+      <!-- ══ LEVEL 4: PERSONIL ANGGOTA ══ -->
+      <div class="personil-section">
+        <div class="personil-box">
+          <h4><i class="ti ti-users" style="color:var(--gold)"></i> Personil Anggota</h4>
+          <div class="personil-desc">Seluruh anggota satpam aktif yang bertugas di lapangan</div>
+          <div class="personil-tags">
+            <span class="personil-tag">Shift Pagi</span>
+            <span class="personil-tag">Shift Siang</span>
+            <span class="personil-tag">Shift Malam</span>
+            <span class="personil-tag">Shift Middel</span>
+            <span class="personil-tag">Pos Jaga</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end branch-wrap -->
+  </div><!-- end org-tree -->
+
+  <div class="sop-footer" style="text-align:center;margin-top:2rem">
+    <p>Struktur Organisasi — <span>Unit Satpam Profesional</span> © 2024</p>
+  </div>
+</div>
+</div>
+
+
 <script>
 function showPage(pageId, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -909,35 +3942,76 @@ function showPage(pageId, btn) {
 }
 
 // ── VIDEO MODAL ──
+// Load video URLs dari localStorage supaya tidak hilang saat refresh
 var videoUrls = {};
+try{
+  var _saved = localStorage.getItem('satpam_videoUrls');
+  if(_saved) videoUrls = JSON.parse(_saved);
+}catch(e){}
 
 function openVideoModal(title, key){
+  var saved = videoUrls[key] || '';
+  // Semua orang bisa nonton kalau URL sudah ada
+  if(saved){
+    document.getElementById('modalTitle').textContent = '▶  ' + title;
+    document.getElementById('modalVideoWrap').innerHTML = '<iframe src="'+saved+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:420px;border-radius:8px"></iframe>';
+    document.getElementById('videoModal').classList.add('open');
+    return;
+  }
+  // Kalau belum ada URL, hanya admin yang bisa input
+  if(!isAdmin){
+    showToast('🔒 Video belum tersedia — Admin belum menambahkan link','#c9a84c');
+    return;
+  }
   document.getElementById('modalTitle').textContent = '▶  ' + title;
   var wrap = document.getElementById('modalVideoWrap');
   var saved = videoUrls[key] || '';
   if(saved){
     wrap.innerHTML = '<iframe src="'+saved+'" frameborder="0" allowfullscreen style="width:100%;height:400px;border-radius:8px"></iframe>';
   } else {
-    wrap.innerHTML = '<div class="url-box"><p>Masukkan URL YouTube untuk <b style=\"color:var(--gold2)\">'+title+'</b> :</p><input id="urlInp_'+key+'" class="url-inp" type="text" placeholder="https://www.youtube.com/watch?v=..."><br><button class="url-btn" onclick="loadUrl(\''+key+'\',\''+title+'\')">▶ Putar Video</button></div>';
+    wrap.innerHTML = '<div class="url-box"><p>Masukkan URL YouTube untuk <b style="color:var(--gold2)">'+title+'</b></p><input id="urlInp_'+key+'" class="url-inp" type="text" placeholder="https://www.youtube.com/watch?v=..."><br><button class="url-btn" onclick="loadUrl(\''+key+'\',\''+title+'\')" style="margin-top:.7rem">▶ Simpan & Putar</button></div>';
   }
   document.getElementById('videoModal').classList.add('open');
 }
 
 function loadUrl(key, title){
   var raw = document.getElementById('urlInp_'+key).value.trim();
-  // convert to embed
-  var url = raw;
-  if(url.includes('watch?v=')){
-    url = url.replace('watch?v=','embed/');
-    var amp = url.indexOf('&');
-    if(amp > -1) url = url.substring(0, amp);
-  } else if(url.includes('youtu.be/')){
-    url = url.replace('youtu.be/','www.youtube.com/embed/');
+  if(!raw){ alert('URL tidak boleh kosong'); return; }
+
+  // Ambil video ID dari berbagai format URL YouTube
+  var videoId = '';
+  var patterns = [
+    /youtube\.com\/watch\?v=([^&\s]+)/,
+    /youtu\.be\/([^?\s]+)/,
+    /youtube\.com\/embed\/([^?\s]+)/,
+    /youtube\.com\/shorts\/([^?\s]+)/,
+    /youtube\.com\/v\/([^?\s]+)/
+  ];
+  for(var i=0;i<patterns.length;i++){
+    var m = raw.match(patterns[i]);
+    if(m){ videoId = m[1]; break; }
   }
-  if(!url.startsWith('http')){ alert('URL tidak valid'); return; }
-  videoUrls[key] = url;
+
+  if(!videoId){
+    // Coba langsung pakai raw kalau sudah format embed
+    if(raw.includes('youtube.com/embed/')){ videoId = raw.split('embed/')[1].split('?')[0]; }
+  }
+
+  if(!videoId){ 
+    showToast('❌ Format URL YouTube tidak dikenali','#ef4444');
+    return; 
+  }
+
+  var embedUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+  videoUrls[key] = embedUrl;
+
+  // Simpan ke localStorage supaya tidak hilang
+  try{ localStorage.setItem('satpam_videoUrls', JSON.stringify(videoUrls)); }catch(e){}
+
   var wrap = document.getElementById('modalVideoWrap');
-  wrap.innerHTML = '<iframe src="'+url+'" frameborder="0" allowfullscreen style="width:100%;height:400px;border-radius:8px"></iframe>';
+  wrap.innerHTML = '<iframe src="'+embedUrl+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:420px;border-radius:8px"></iframe>';
+
+  showToast('✅ Video berhasil disimpan!','#22c55e');
 }
 
 function closeVideoModal(){
@@ -946,6 +4020,7 @@ function closeVideoModal(){
 }
 
 function loadCustomVideo(input){
+  if(!isAdmin){ return; }
   if(!input.files[0]) return;
   var url = URL.createObjectURL(input.files[0]);
   var wrap = document.getElementById('uploadZoneWrap');
@@ -957,6 +4032,214 @@ document.getElementById('videoModal').addEventListener('click', function(e){
   if(e.target === this) closeVideoModal();
 });
 
+
+// ── SOP POS ──
+(function loadSavedSops(){
+  // load all saved textarea content from localStorage
+  try {
+    for(var k in localStorage){
+      if(k.startsWith('sop_')){
+        var el = document.getElementById(k);
+        if(el) el.value = localStorage.getItem(k);
+      }
+    }
+  } catch(e){}
+})();
+
+function switchPos(posId, btn){
+  document.querySelectorAll('.pos-tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.querySelectorAll('.pos-panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('panel_'+posId).classList.add('active');
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function loadPhoto(input, sid){
+  if(!input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var slot = document.getElementById(sid);
+    var img = slot.querySelector('img');
+    if(!img){ img = document.createElement('img'); slot.appendChild(img); }
+    img.src = e.target.result;
+    slot.querySelector('.ph-ico').style.display='none';
+    slot.querySelector('.ph-txt').style.display='none';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function delPhoto(ev, sid){
+  ev.stopPropagation();
+  var slot = document.getElementById(sid);
+  var img = slot.querySelector('img');
+  if(img) img.remove();
+  slot.querySelector('.ph-ico').style.display='';
+  slot.querySelector('.ph-txt').style.display='';
+}
+
+function saveSop(key){
+  try{ localStorage.setItem(key, document.getElementById(key).value); } catch(e){}
+  var ok = document.getElementById('ok_'+key);
+  ok.style.display='inline';
+  setTimeout(function(){ok.style.display='none';}, 2000);
+}
+
+function autoSave(key){
+  try{ localStorage.setItem(key, document.getElementById(key).value); } catch(e){}
+}
+
+
+// ── STRUKTUR ORGANISASI ──
+(function loadOrgData(){
+  try{
+    ['pimpinan','wakil1','wakil2','dankas','dandam'].forEach(function(id){
+      var el = document.getElementById('nm_'+id);
+      var saved = localStorage.getItem('org_nm_'+id);
+      if(el && saved) el.value = saved;
+    });
+  }catch(e){}
+})();
+
+function loadOrgPhoto(input, wrapId){
+  if(!input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var wrap = document.getElementById(wrapId);
+    var img = wrap.querySelector('img');
+    if(!img){ img = document.createElement('img'); img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;border-radius:50%'; wrap.appendChild(img); }
+    img.src = e.target.result;
+    var icon = wrap.querySelector('.cam-icon');
+    if(icon) icon.style.opacity='0';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function saveOrgName(id){
+  try{ localStorage.setItem('org_nm_'+id, document.getElementById('nm_'+id).value); }catch(e){}
+}
+
+
+// ════════════════════════════════
+// ADMIN LOCK SYSTEM
+// ════════════════════════════════
+var ADMIN_PASS = 'Admin@Satpam2024'; // <-- Ganti password di sini
+var isAdmin = false;
+
+function initLock(){
+  // Cek session
+  try{
+    if(sessionStorage.getItem('satpam_admin')==='1'){
+      setAdminMode(true, false);
+      return;
+    }
+  }catch(e){}
+  setAdminMode(false, false);
+}
+
+function toggleAdmin(){
+  if(isAdmin){
+    // Logout
+    setAdminMode(false, true);
+  } else {
+    // Open login
+    document.getElementById('loginModal').classList.add('open');
+    document.getElementById('loginErr').style.display='none';
+    document.getElementById('pwInput').value='';
+    setTimeout(function(){ document.getElementById('pwInput').focus(); }, 100);
+  }
+}
+
+function doLogin(){
+  var pw = document.getElementById('pwInput').value;
+  if(pw === ADMIN_PASS){
+    try{ sessionStorage.setItem('satpam_admin','1'); }catch(e){}
+    closeLogin();
+    setAdminMode(true, true);
+  } else {
+    var inp = document.getElementById('pwInput');
+    document.getElementById('loginErr').style.display='block';
+    inp.classList.remove('shake');
+    void inp.offsetWidth;
+    inp.classList.add('shake');
+    inp.value='';
+    inp.focus();
+  }
+}
+
+function closeLogin(){
+  document.getElementById('loginModal').classList.remove('open');
+}
+
+function setAdminMode(on, notify){
+  isAdmin = on;
+  var body = document.body;
+  var btn = document.getElementById('adminBtn');
+  var icon = document.getElementById('adminBtnIcon');
+  var label = document.getElementById('adminBtnLabel');
+  var badge = document.getElementById('adminModeBadge');
+
+  if(on){
+    body.classList.remove('view-mode');
+    icon.className = 'ti ti-lock-open';
+    label.textContent = 'Admin Aktif — Klik Logout';
+    btn.style.borderColor = '#22c55e';
+    btn.style.color = '#22c55e';
+    badge.style.display = 'block';
+    if(notify) showToast('✅ Mode Admin Aktif — Anda bisa edit & upload', '#22c55e');
+  } else {
+    body.classList.add('view-mode');
+    icon.className = 'ti ti-lock';
+    label.textContent = 'Mode Lihat';
+    btn.style.borderColor = '';
+    btn.style.color = '';
+    badge.style.display = 'none';
+    try{ sessionStorage.removeItem('satpam_admin'); }catch(e){}
+    if(notify) showToast('🔒 Logout berhasil — Mode Lihat aktif', '#c9a84c');
+  }
+}
+
+function showToast(msg, color){
+  var t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:70px;right:16px;background:'+color+';color:#fff;padding:8px 16px;border-radius:10px;font-size:12px;font-weight:700;z-index:99999;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:opacity .5s;font-family:Source Sans 3,sans-serif';
+  if(color==='#c9a84c') t.style.color='#0a1628';
+  document.body.appendChild(t);
+  setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); },600); }, 2500);
+}
+
+// Close login on overlay click
+document.getElementById('loginModal').addEventListener('click', function(e){
+  if(e.target===this) closeLogin();
+});
+
+// Init on load
+initLock();
+
 </script>
+
+<!-- ═══ ADMIN LOCK BAR ═══ -->
+<div id="adminBar">
+  <div id="adminStatus"></div>
+  <button id="adminBtn" onclick="toggleAdmin()">
+    <i class="ti ti-lock" id="adminBtnIcon"></i>
+    <span id="adminBtnLabel">Mode Lihat</span>
+  </button>
+</div>
+<div id="adminModeBadge">✏️ Mode Admin Aktif</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal">
+  <div id="loginBox">
+    <i class="ti ti-shield-lock lock-icon"></i>
+    <h3>Admin Login</h3>
+    <p>Masukkan password untuk mengaktifkan mode edit</p>
+    <div id="loginErr">❌ Password salah, coba lagi</div>
+    <input type="password" id="pwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button id="loginSubmit" onclick="doLogin()">🔓 Masuk sebagai Admin</button>
+    <button id="loginCancel" onclick="closeLogin()">Batal</button>
+    <div class="pw-hint">Hanya admin yang memiliki akses edit</div>
+  </div>
+</div>
+
 </body>
 </html>
